@@ -86,6 +86,8 @@ public class EntireController extends controllers.Controller{
     @RequestMapping(value = "/exit", method = RequestMethod.POST)
     public String exit(@CookieValue(value = "user_code", required = false) Cookie cookieUserCode,
                        HttpServletResponse response){
+
+        cookieUserCode.setValue("0");
         cookieUserCode.setMaxAge(0);
 
         return "index";

@@ -16,6 +16,8 @@
         <mysql.version>8.0.8-dmr</mysql.version>
         <org.springframework-version>4.2.2.RELEASE</org.springframework-version>
         <servlet.version>3.1.0</servlet.version>
+        <hibernate.version>4.3.11.Final</hibernate.version>
+        <hibernate-envers.version>${hibernate.version}</hibernate-envers.version>
     </properties>
 
 
@@ -104,10 +106,16 @@
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-envers</artifactId>
+            <version>${hibernate-envers.version}</version>
         </dependency>
 
 
