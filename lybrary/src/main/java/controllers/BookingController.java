@@ -20,12 +20,12 @@ import java.util.Date;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 @RestController
-public class BookingController extends Controller{
+public class BookingController extends Controller {
 
     @RequestMapping(value = "/takeItem", method = POST)
     public String takeItem(@RequestParam(value = "documentId", required = true, defaultValue = "Not found") String documentId,
                            @CookieValue(value = "user_code", required = false) Cookie cookieUserCode
-                           ) {
+    ) {
 
         Date date = new Date();
         DBHandler db;
@@ -37,8 +37,6 @@ public class BookingController extends Controller{
             String documentGetQuery = "select * from documents where id = " + documentId + "";
             String usersGetQuery = "select * from users where id = " + getIdFromCookie(cookieUserCode.getValue()) + "";
             String ordersGetQuery = "select * from orders where userId = " + getIdFromCookie(cookieUserCode.getValue()) + "";
-//            String ordersGetQuery = "select * from orders where (userId = " + getIdFromCookie(cookieUserCode.getValue()) + ") and " +
-//                    "( itemId = " + documentId + ")";
 
             System.out.println(ordersGetQuery);
             ResultSet usersResultSet = userStatement.executeQuery(usersGetQuery);
@@ -46,7 +44,7 @@ public class BookingController extends Controller{
             ResultSet ordersResultSet = ordersStatement.executeQuery(ordersGetQuery);
 
             boolean check = false;
-            while (ordersResultSet.next()){
+            while (ordersResultSet.next()) {
                 if (ordersResultSet.getString("itemId").equals(documentId)) {
                     check = true;
                 }
@@ -55,7 +53,7 @@ public class BookingController extends Controller{
             usersResultSet.next();
             if (!documentsResultSet.next()) return "false";
             int currentAmount = documentsResultSet.getInt("amount");
-            if (currentAmount == 0) return "false";
+            if (currentAmount == 0 || documentsResultSet.getString("status").equals("reference")) return "false";
             //-- some conditions
             long keepingTime = 0;
             String userStatus = usersResultSet.getString("status");
@@ -64,17 +62,17 @@ public class BookingController extends Controller{
             else {
                 if (userStatus.equals("disabled") || userStatus.equals("activated")) keepingTime = 1728000000;
                 else keepingTime = 2 * 1728000000L;
-                System.out.println(keepingTime);
+//                System.out.println(keepingTime);
             }
             //--
 
             String queryForDocument = "update documents set amount = " + (currentAmount - 1) + " where id = " + documentId;
-            System.out.println(queryForDocument);
+//            System.out.println(queryForDocument);
             String queryForOrder = "insert into orders (userId, itemId, startTime, finishTime) values (" +
                     getIdFromCookie(cookieUserCode.getValue()) + ", " +
                     documentId + ", " +
                     date.getTime() + ", " +
-                    (date.getTime()+keepingTime)+")";
+                    (date.getTime() + keepingTime) + ")";
 
             documentsStatement.execute(queryForDocument);
             userStatement.execute(queryForOrder);

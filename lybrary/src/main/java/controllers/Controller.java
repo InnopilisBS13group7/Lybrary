@@ -1,6 +1,9 @@
 package controllers;
 
 import DateBase.DBHandler;
+import Models.Document;
+import Models.Order;
+import Models.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.servlet.http.Cookie;
@@ -10,10 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Random;
-import java.util.StringTokenizer;
+import java.util.*;
 
 public class Controller {
 
@@ -127,7 +127,7 @@ public class Controller {
         return request.getRemoteAddr();
     }
 
-    protected boolean isCookieWrong (Cookie cookieUserCode) throws SQLException {
+    protected boolean isCookieWrong(Cookie cookieUserCode) throws SQLException {
         DBHandler db;
         db = new DBHandler();
         Statement statement = db.getConnection().createStatement();
@@ -161,5 +161,79 @@ public class Controller {
         return true;
     }
 
+    protected static Iterable getAllUsers() throws SQLException {
+        List<User> list = new LinkedList<>();
+        DBHandler db;
+        db = new DBHandler();
+        Statement statement = db.getConnection().createStatement();
+        String getQuery = "SELECT * FROM users";
+        ResultSet resultSet = statement.executeQuery(getQuery);
+        while (resultSet.next()) {
+            list.add(new User(resultSet.getString(1),
+                    resultSet.getString(2),
+                    resultSet.getString(3),
+                    resultSet.getString(4),
+                    resultSet.getString(5),
+                    resultSet.getString(6),
+                    resultSet.getString(7),
+                    resultSet.getInt(8)));
+        }
+        return list;
+    }
 
+    protected static Iterable getAllOrders() throws SQLException {
+        List<Order> list = new LinkedList<>();
+        DBHandler db;
+        db = new DBHandler();
+        Statement statement = db.getConnection().createStatement();
+        String getQuery = "SELECT * FROM orders";
+        ResultSet resultSet = statement.executeQuery(getQuery);
+        while (resultSet.next()) {
+            list.add(new Order(resultSet.getInt(1),
+                    resultSet.getInt(2),
+                    resultSet.getInt(3),
+                    resultSet.getLong(4),
+                    resultSet.getLong(5),
+                    resultSet.getString(6)));
+        }
+        return list;
+    }
+
+    protected static Iterable getAllFinishedOrders() throws SQLException {
+        List<Order> list = new LinkedList<>();
+        DBHandler db;
+        db = new DBHandler();
+        Statement statement = db.getConnection().createStatement();
+        String getQuery = "SELECT * FROM orders WHERE status = 'finished'";
+        ResultSet resultSet = statement.executeQuery(getQuery);
+        while (resultSet.next()) {
+            list.add(new Order(resultSet.getInt(1),
+                    resultSet.getInt(2),
+                    resultSet.getInt(3),
+                    resultSet.getLong(4),
+                    resultSet.getLong(5),
+                    resultSet.getString(6)));
+        }
+        return list;
+    }
+
+    protected static Iterable getAllDocuments() throws SQLException {
+        List<Document> list = new LinkedList<>();
+        DBHandler db;
+        db = new DBHandler();
+        Statement statement = db.getConnection().createStatement();
+        String getQuery = "SELECT * FROM documents";
+        ResultSet resultSet = statement.executeQuery(getQuery);
+        while (resultSet.next()) {
+            list.add(new Document(resultSet.getString(1),
+                    resultSet.getString(2),
+                    resultSet.getString(3),
+                    resultSet.getString(4),
+                    resultSet.getInt(5),
+                    resultSet.getString(6),
+                    resultSet.getString(7),
+                    resultSet.getString(8)));
+        }
+        return list;
+    }
 }

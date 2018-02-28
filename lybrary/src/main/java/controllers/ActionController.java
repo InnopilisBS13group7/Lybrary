@@ -17,9 +17,6 @@ public class ActionController extends controllers.Controller {
             throws SQLException{
         if (isCookieWrong(cookieUserCode)) return "false";
         String userId = getIdFromCookie(cookieUserCode.getValue());
-
-
-
         return createUserCardPage(userId);
     }
 }

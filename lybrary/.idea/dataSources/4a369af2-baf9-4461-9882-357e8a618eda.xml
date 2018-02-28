@@ -1026,55 +1026,67 @@
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="252" parent="231" name="PRIMARY">
+    <column id="252" parent="231" name="status">
+      <Position>6</Position>
+      <DataType>varchar(15)|0</DataType>
+      <DefaultExpression>&apos;open&apos;</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="253" parent="231" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="253" parent="232" name="id">
+    <column id="254" parent="232" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="254" parent="232" name="email">
+    <column id="255" parent="232" name="email">
       <Position>2</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="255" parent="232" name="password">
+    <column id="256" parent="232" name="password">
       <Position>3</Position>
       <DataType>varchar(150)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="256" parent="232" name="name">
+    <column id="257" parent="232" name="name">
       <Position>4</Position>
       <DataType>varchar(20)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="257" parent="232" name="surname">
+    <column id="258" parent="232" name="surname">
       <Position>5</Position>
       <DataType>varchar(20)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="258" parent="232" name="cookieId">
+    <column id="259" parent="232" name="cookieId">
       <Position>6</Position>
       <DataType>varchar(20)|0</DataType>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="259" parent="232" name="status">
+    <column id="260" parent="232" name="status">
       <Position>7</Position>
       <DataType>varchar(10)|0</DataType>
       <DefaultExpression>&apos;disabled&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="260" parent="232" name="PRIMARY">
+    <column id="261" parent="232" name="fine">
+      <Position>8</Position>
+      <DataType>int(11)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="262" parent="232" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
