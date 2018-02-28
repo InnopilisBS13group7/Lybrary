@@ -56,7 +56,7 @@ CREATE TABLE `documents` (
   `type` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `documents_id_uindex` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -65,7 +65,7 @@ CREATE TABLE `documents` (
 
 LOCK TABLES `documents` WRITE;
 /*!40000 ALTER TABLE `documents` DISABLE KEYS */;
-INSERT INTO `documents` VALUES (1,'Book_1','Author_1','simple',0,'ssssssssssssssssssssssssssssssssssssss','#teg','book'),(2,'Title','Author','bestseller',2,'Short description','#book','book');
+INSERT INTO `documents` VALUES (1,'Bookkk','Bookkk','Bookkk',10,'Bookkk','Bookkk','Bookkk'),(2,'Title','Author','bestseller',1,'Short description','#book','book'),(4,'Книга','Bookkk','reference',10,'Bookkk','Bookkk','Bookkk');
 /*!40000 ALTER TABLE `documents` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -82,8 +82,9 @@ CREATE TABLE `orders` (
   `itemId` int(11) DEFAULT NULL,
   `startTime` mediumtext NOT NULL,
   `finishTime` mediumtext NOT NULL,
+  `status` varchar(15) DEFAULT 'open',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -92,7 +93,7 @@ CREATE TABLE `orders` (
 
 LOCK TABLES `orders` WRITE;
 /*!40000 ALTER TABLE `orders` DISABLE KEYS */;
-INSERT INTO `orders` VALUES (20,18,1,'1519408615004','1521136615004');
+INSERT INTO `orders` VALUES (20,18,1,'1519408615004','1521136615004','open'),(21,18,2,'1519810902933','1521020502933','open'),(22,18,1,'1519810902933','1521020502933','closed');
 /*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -111,8 +112,9 @@ CREATE TABLE `users` (
   `surname` varchar(20) NOT NULL,
   `cookieId` varchar(20) DEFAULT '0',
   `status` varchar(10) DEFAULT 'disabled',
+  `fine` int(11) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -121,7 +123,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (18,'sk@innopolis.ru','$2a$10$O8HpvIQPNBCAT5Q4JoJp7uTPDT6.zTo/MCZRiz67zVADoOk.QLSW.','Sem','Kiss','76848718525116','disabled');
+INSERT INTO `users` VALUES (18,'sk@innopolis.ru','$2a$10$O8HpvIQPNBCAT5Q4JoJp7uTPDT6.zTo/MCZRiz67zVADoOk.QLSW.','Sem','Kiss','68337218214732','disabled',0);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -134,4 +136,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-02-24  0:00:03
+-- Dump completed on 2018-02-28 12:57:25
