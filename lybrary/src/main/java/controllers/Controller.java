@@ -15,6 +15,8 @@ import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+import static com.sun.tools.doclint.Entity.ge;
+
 public class Controller {
 
     public static String getDate() {
@@ -163,7 +165,7 @@ public class Controller {
         return true;
     }
 
-    protected static Iterable getAllUsers() throws SQLException {
+    protected static List<User> getAllUsers() throws SQLException {
         List<User> list = new LinkedList<>();
         DBHandler db;
         db = new DBHandler();
@@ -183,7 +185,7 @@ public class Controller {
         return list;
     }
 
-    protected static Iterable getAllOrders() throws SQLException {
+    protected static List<Order> getAllOrders() throws SQLException {
         List<Order> list = new LinkedList<>();
         DBHandler db;
         db = new DBHandler();
@@ -247,6 +249,77 @@ public class Controller {
         ResultSet resultSet = statement.executeQuery(getQuery);
         if (!resultSet.next()) return "false";
         return Integer.toString(resultSet.getInt(1));
+    }
+
+    protected static User getClientUserObject(String id) throws SQLException {
+        DBHandler db = new DBHandler();
+        Statement statement = db.getConnection().createStatement();
+        String query = "select * from users where id = " + id;
+        ResultSet r = statement.executeQuery(query);
+        if (!r.next()) System.out.println("PPPPPPPPPPPPPPIZDEC");//return null;
+        User user = new User(r.getString(1),
+                r.getString(2),
+                r.getString(3),
+                r.getString(4),
+                r.getString(5),
+                r.getString(6),
+                r.getString(7),
+                r.getInt(8));
+        statement.close();
+        return user;
+    }
+
+    protected static Document getDocumentByOrder(Order order) throws SQLException {
+        DBHandler db = new DBHandler();
+        Statement statement = db.getConnection().createStatement();
+        String query = "select * from documents where id = " + order.getItemId();
+        ResultSet r = statement.executeQuery(query);
+        if (!r.next()) return null;
+        Document document = new Document(r.getString(1),
+                r.getString(2),
+                r.getString(3),
+                r.getString(4),
+                r.getInt(5),
+                r.getString(6),
+                r.getString(7),
+                r.getString(8));
+        return document;
+    }
+
+    protected static String createListOfUsersBlock(List<User> users) {
+        String div = "<div class=settings_type_box id=settings_users>" +
+                "<div id=new_user>+ Add a new user</div>";
+        for (User u : users) {
+            div += "<div class=settings_list_users>" +
+                    "<img src=/resources/img/avatars/1.jpg width=100px height=100px class=settings_users_list_avatar />" +
+                    "<div class=settings_users_list_specs_box>" +
+                    "<b style=\"text-decoration:underline;\">" + u.getName() + " " + u.getSurname() + "</b></br>" +
+                    "<b>Status:</b>" + u.getStatus() + "</br>" +
+                    "<b>Fine:</b>" + u.getFine() +
+                    "</div>" +
+                    "<div class=settings_users_list_modify id=" + u.getId() + ">Modify</div>" +
+                    "</div>";
+        }
+        return div + "</div>";
+    }
+
+    protected static String createListOfOrdersBlock(List<Order> orders) throws SQLException {
+        String div = "<div class=settings_type_box id=settings_orders>" +
+                "<div id=new_book>+ Add a new book</div>";
+        Document d;
+        for (Order or : orders) {
+             d = getDocumentByOrder(or);
+            div += "<div class=settings_list_orders>" +
+                    "<img src=/resources/img/books/1.jpg width=100px height=100px class=settings_orders_list_avatar />" +
+                    "<div class=settings_orders_list_specs_box>" +
+                    "<b style=\"text-decoration:underline;\">"+ d.getTitle()+"</b></br>" +
+                    "#book #chtenie #hashtag</br>" +
+                    "<b>Return date:</b>"+ getDate(or.getFinishTime()) +
+                    "</div>" +
+                    "<div class=settings_orders_list_modify id=228>Modify</div>" +
+                    "</div>";
+        }
+        return div + "</div>";
     }
 
 
