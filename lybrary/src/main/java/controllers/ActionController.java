@@ -33,12 +33,12 @@ public class ActionController extends controllers.Controller {
       "</div>" +
       "<p class=setting_parameter_name><b>Change name</b></p>" +
       "<input type=text class=settings_input id=settings_name placeholder=\"New name\" style=\"margin-top:-8px\" />" +
-      "<input type=text class=settings_input id=settings_surname placeholder="New surname" />" +
+      "<input type=text class=settings_input id=settings_surname placeholder=\"New surname\" />" +
       "<p class=setting_parameter_name style=\"margin-top:16px\"><b>Change password</b></p>" +
       "<input type=text class=settings_input id=settings_current_password placeholder=\"Current password\" style=\"margin-top:-8px\" />" +
       "<input type=text class=settings_input id=settings_new_password placeholder=\"New password\" />" +
       "<div id=settings_profile_save>Save</div>" +
-    "</div>"
+    "</div>";
     
         return div;
     }
