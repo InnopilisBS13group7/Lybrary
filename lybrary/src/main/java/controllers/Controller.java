@@ -238,4 +238,16 @@ public class Controller {
         }
         return list;
     }
+
+    public static String getDocumentIdByParameters(String title, String author, String type) throws SQLException {
+        DBHandler db;
+        db = new DBHandler();
+        Statement statement = db.getConnection().createStatement();
+        String getQuery = "select * from documents where title = '" + title + "' and author = '" + author + "' and type = '" + type + "'";
+        ResultSet resultSet = statement.executeQuery(getQuery);
+        if (!resultSet.next()) return "false";
+        return Integer.toString(resultSet.getInt(1));
+    }
+
+
 }

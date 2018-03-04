@@ -22,7 +22,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 @RestController
 public class RegistrationController extends controllers.Controller {
     /**
-     * checks if there is already an account in database
+     * Checks if there is already an account in database
      *
      * @param name
      * @param surname

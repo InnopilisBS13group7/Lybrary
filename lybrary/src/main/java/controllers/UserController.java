@@ -13,7 +13,7 @@ public class UserController extends Controller {
     @RequestMapping(value = "/returnDocument", method = RequestMethod.POST)
     public String returnDocument(@CookieValue(value = "user_code", required = false) Cookie cookieUserCode,
                                  @RequestParam(value = "documentId", required = false) String documentId,
-                                 @RequestParam(value = "orderId", required = true) String orderId)
+                                 @RequestParam(value = "orderId") String orderId)
             throws SQLException {
         if (isCookieWrong(cookieUserCode)) return "false";
 

@@ -57,6 +57,10 @@ public class AdminController extends Controller {
         db = new DBHandler();
         Statement statement = db.getConnection().createStatement();
 
+        String getQuery = "select * from documents where id = " + id;
+        ResultSet resultSet = statement.executeQuery(getQuery);
+        if (!resultSet.next()) return "false";//does not exist such book
+
         String query = "UPDATE documents SET " +
                 "title ='" + title + "', " +
                 "author ='" + author + "', " +
@@ -66,7 +70,6 @@ public class AdminController extends Controller {
                 "teg ='" + teg + "', " +
                 "type ='" + type + "' " +
                 "WHERE id = " + id;
-//        System.out.println(query);
         statement.execute(query);
         return "true";
     }
@@ -81,6 +84,10 @@ public class AdminController extends Controller {
         DBHandler db;
         db = new DBHandler();
         Statement statement = db.getConnection().createStatement();
+
+        String getQuery = "select * from users where id = " + id;
+        ResultSet resultSet = statement.executeQuery(getQuery);
+        if (!resultSet.next()) return "false";//does not exist such user
 
         String query = "UPDATE users SET " +
                 "name ='" + name + "', " +
@@ -100,9 +107,48 @@ public class AdminController extends Controller {
         db = new DBHandler();
         Statement statement = db.getConnection().createStatement();
 
+        String getQuery = "select * from users where id = " + id;
+        ResultSet resultSet = statement.executeQuery(getQuery);
+        if (!resultSet.next()) return "false";//does not exist such user
+
         String query = "DELETE from users "+
                 "WHERE id = " + id;
-//        System.out.println(query);
+        statement.execute(query);
+        return "true";
+    }
+
+    @RequestMapping(value = "/deleteDocumentById", method = RequestMethod.POST)
+    public static String deleteDocumentById(@RequestParam(value = "id", required = false, defaultValue = "Not found") String id)
+            throws SQLException {
+        DBHandler db;
+        db = new DBHandler();
+        Statement statement = db.getConnection().createStatement();
+
+        String getQuery = "select * from documents where id = " + id;
+        ResultSet resultSet = statement.executeQuery(getQuery);
+        if (!resultSet.next()) return "false";//does not exist such book
+
+        String query = "DELETE from documents "+
+                "WHERE id = " + id;
+        statement.execute(query);
+        return "true";
+    }
+
+    @RequestMapping(value = "/deleteDocumentByParameters", method = RequestMethod.POST)
+    public static String deleteDocumentByParameters(@RequestParam(value = "title", required = false, defaultValue = "Not found") String title,
+                                                    @RequestParam(value = "author", required = false, defaultValue = "Not found") String author,
+                                                    @RequestParam(value = "type", required = false, defaultValue = "Not found") String type)
+            throws SQLException {
+        DBHandler db;
+        db = new DBHandler();
+        Statement statement = db.getConnection().createStatement();
+
+        String getQuery = "select * from documents where title = '" + title + "' and author = '" + author + "' and type = '" + type + "'";
+        ResultSet resultSet = statement.executeQuery(getQuery);
+        if (!resultSet.next()) return "false";//already exist such book
+
+        String query = "DELETE from documents "+
+                "where title = '" + title + "' and author = '" + author + "' and type = '" + type + "'";
         statement.execute(query);
         return "true";
     }
@@ -113,6 +159,10 @@ public class AdminController extends Controller {
         DBHandler db;
         db = new DBHandler();
         Statement statement = db.getConnection().createStatement();
+
+        String getQuery = "select * from orders where id = " + orderId;
+        ResultSet resultSet = statement.executeQuery(getQuery);
+        if (!resultSet.next()) return "false";//does not exist such order
 
         String query = "UPDATE orders SET " +
                 "status ='" + "closed" + "' " +
@@ -125,9 +175,9 @@ public class AdminController extends Controller {
 
 
     public static void main(String[] args) throws SQLException {
-//        addDocument( "Книга","Bookkk","Bookkk","Bookkk","Bookkk","10","reference");
-        closeOrder("22");
-        for (Object d : getAllFinishedOrders()) {
+        addDocument( "Книга","Bookkk","Bookkk","Bookkk","Bookkk","10","reference");
+//        closeOrder("22");
+        for (Object d : getAllDocuments()) {
             System.out.println(d.toString());
         }
     }
