@@ -1,0 +1,74 @@
+body{
+	background-color:rgb(240, 240, 240);
+}
+#settings_block{
+	position:absolute;
+	width:800px;
+	background-color:white;
+	border-bottom:8px solid white;
+	box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
+
+}
+#settings_type_menu{
+	position:relative;
+	width:800px;
+	border-bottom:1px solid rgb(214, 214, 214);
+	height:42px;
+}
+.settings_type{
+	position:absolute;
+	font-family:'RobotoRegular';
+	text-align:center;
+	width:266px;
+	margin-top:8px;
+	font-size:22px;
+	cursor:pointer;
+}
+#settings_type_users{
+	margin-left:266px;
+}
+#settings_type_orders{
+	margin-left:532px;
+}
+#settings_type_line{
+	position:absolute;
+	width:266px;
+	height:3px;
+	background-color:rgb(255, 51, 51);
+	margin-top:40px;
+}
+.setting_parameter_name{
+	position:relative;
+	text-align:center;
+	font-family:'RobotoRegular';
+	font-size:18px;
+	margin-top:8px;
+}
+.settings_input{
+	position:relative;
+	width:266px;
+	font-family:'RobotoRegular';
+	text-decoration:none;
+	border:none;
+	border-bottom:2px solid black;
+	margin-left:267px;
+	text-align:center;
+	color:black;
+	outline:none;
+	margin-top:8px;
+	font-size:18px;
+}
+#settings_profile_save{
+	position:relative;
+	width:266px;
+	text-align:center;
+	color:white;
+	background-color:black;
+	font-family:'RobotoRegular';
+	font-size:18px;
+	margin-top:8px;
+	margin-left:267px;
+	padding-top:8px;
+	padding-bottom:8px;
+	cursor:pointer;
+}

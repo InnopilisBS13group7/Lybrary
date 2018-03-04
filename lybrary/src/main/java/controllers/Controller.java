@@ -89,8 +89,10 @@ public class Controller {
                 i++;
                 keepingTime = ordersResultSet.getLong("finishTime");
                 items = items + "<div class=\"books\" style=\"margin-left:" + margin + "px\"> " +
+                        "<div class=books_inside>" + getDate(keepingTime) +
+                        "<div class=return_book id=228/*Тут номер заказа должен быть*/>Return the book</div></div>" +
                         "<img src=\"/resources/img/books/1.jpg\" width=\"190px\" height=\"289px\" /> " +
-                        "<p class=\"bookname\">" + "3 PIGS ->" + getDate(keepingTime) + "</p> " +
+                        "<p class=\"bookname\">" + "3 PIGS</p> " +
                         "</div>";
                 margin += 198;
                 if (i % 4 == 0) margin = -5;
