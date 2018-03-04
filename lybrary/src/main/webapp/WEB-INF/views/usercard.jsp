@@ -51,7 +51,8 @@
         </div>
         <div id=avatar></div>
         <div class=menu_points id=booking_system>Booking</div>
-        <div class=menu_points id=exit>Exit</div>
+        <div class="menu_points" id="settings">Settings</div>
+        <div class="menu_points" id="exit">Exit</div>
     <!-- /container -->
     <%--<script src=https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js></script>--%>
     <%--<script src=${contextPath}/resources/js/bootstrap.min.js></script>--%>

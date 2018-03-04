@@ -22,8 +22,8 @@ $(document).ready(function(){
 				$("#first_menu_block, #second_menu_block").css({"transform":"rotate(45deg)"}, 100);
 				$("#third_menu_block").css({"transform":"rotate(135deg)"}, 100);
 			}, 300);
-			$("#main, #more_box20").animate({"margin-top":"+=100px"}, 300);
-			$("#topic").animate({"margin-top":"-=100px"}, 300);
+			$("#main").animate({"margin-top":"+=146px"}, 300);
+			$("#topic").animate({"margin-top":"-=146px"}, 300);
 			$(".menu_points").slideDown(0).animate({"opacity":"1"}, 300);
 		}
 		else{
@@ -38,8 +38,8 @@ $(document).ready(function(){
 			setTimeout(function(){
 				$("#first_menu_block, #second_menu_block, #third_menu_block").css({"transform":"rotate(0deg)"}, 100);
 			}, 300)
-			$("#main, #more_box20").animate({"margin-top":"-=100px"}, 300);
-			$("#topic").animate({"margin-top":"+=100px"}, 300);
+			$("#main").animate({"margin-top":"-=146px"}, 300);
+			$("#topic").animate({"margin-top":"+=146px"}, 300);
 			$(".menu_points").animate({"opacity":"0"}, 300).slideUp(0);
 		}
 	});
@@ -63,8 +63,8 @@ $(document).ready(function(){
 			setTimeout(function(){
 				$("#first_menu_block, #second_menu_block, #third_menu_block").css({"transform":"rotate(0deg)"}, 100);
 			}, 300)
-			$("#main, #more_box20").animate({"margin-top":"-=100px"}, 300);
-			$("#topic").animate({"margin-top":"+=100px"}, 300);
+			$("#main").animate({"margin-top":"-=146px"}, 300);
+			$("#topic").animate({"margin-top":"+=146px"}, 300);
 			$(".menu_points").animate({"opacity":"0"}, 300).slideUp(0);
 		});
 	});
