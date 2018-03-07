@@ -75,7 +75,7 @@ $(document).ready(function(){
 			setTimeout(function(){
 				$("#more_box20").html(page);
 				$("#style20").load('../resources/style/more.css');
-				$.getScript('../resources/scripts/for_all.js');
+				$.getScript('../resources/scripts/profile.js');
 			}, 300);
 		});
 	});
@@ -107,14 +107,6 @@ $(document).ready(function(){
 			$("#main").animate({"margin-top":"-=146px"}, 300);
 			$("#topic").animate({"margin-top":"+=146px"}, 300);
 			$(".menu_points").animate({"opacity":"0"}, 300).slideUp(0);
-		});
-	});
-	$(".books").mouseenter(function(){
-		$(this).children().animate({"opacity":"1"}, 150);
-	});
-	$(".return_book").click(function(){
-		$.post("/return", {order:$(this).attr("id")}, function(result){
-			alert(result);
 		});
 	});
 });

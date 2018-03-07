@@ -50,3 +50,60 @@
 	margin-left:700px;
 	margin-top:46px;
 }
+#new_doc_box{
+	position:relative;
+	width:800px;
+	background-color:white;
+	box-shadow:0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
+	border:8px solid white;
+}
+.new_doc{
+	position:relative;
+	font-family:'RobotoRegular';
+	font-size:20px;
+	cursor:pointer;
+	text-align:center;
+}
+.new_doc:hover{
+	text-decoration:underline;
+}
+#new_book{
+	width:399px;
+	border-right:1px solid rgb(214, 214, 214); 
+}
+#new_av{
+	width:400px;
+	margin-left:400px;
+	margin-top:-24px;
+}
+.add_block{
+	position:relative;
+	height:0px;
+	width:266px;
+	margin-left:267px;
+	overflow:hidden;
+}
+.add_inputs{
+	position:relative;
+	width:250px;
+	padding:0px 8px 0px 8px;
+	font-family:'RobotoRegular';
+	font-size:18px;
+	text-align:center;
+	border:0px;
+	border-bottom:2px solid black;
+	outline:none;
+	margin-top:8px;
+}
+.add_save{
+	position:relative;
+	width:250px;
+	padding:8px;
+	font-family:'RobotoRegular';
+	font-size:18px;
+	text-align:center;
+	color:white;
+	background-color:black;
+	margin-top:8px;
+	cursor:pointer;
+}

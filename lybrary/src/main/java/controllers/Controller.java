@@ -92,7 +92,7 @@ public class Controller {
                 keepingTime = ordersResultSet.getLong("finishTime");
                 items = items + "<div class=\"books\" style=\"margin-left:" + margin + "px\"> " +
                         "<div class=books_inside>" + getDate(keepingTime) +
-                        "<div class=return_book id=228/*Тут номер заказа должен быть*/>Return the book</div></div>" +
+                        "<div class=return_book id=228>Return the book</div></div>" +
                         "<img src=\"/resources/img/books/1.jpg\" width=\"190px\" height=\"289px\" /> " +
                         "<p class=\"bookname\">" + "3 PIGS</p> " +
                         "</div>";
@@ -288,35 +288,43 @@ public class Controller {
 
     protected static String createListOfUsersBlock(List<User> users) {
         String div = "<div class=settings_type_box id=settings_users>" +
-                "<div id=new_user>+ Add a new user</div>";
+                        "<div id=new_user><p id=new_user_bottom>+ Add a new user</p>" +
+                            "<input type=text class=new_user_inputs id=new_user_inputs_name placeholder=\"Name\" />" +
+                            "<input type=text class=new_user_inputs id=new_user_inputs_surname placeholder=\"Surname\" />" +
+                            "<input type=text class=new_user_inputs id=new_user_inputs_email placeholder=\"email\" />" +
+                            "<input type=password class=new_user_inputs id=new_user_inputs_password placeholder=\"Password\" />" +
+                            "<input type=text class=new_user_inputs id=new_user_inputs_type placeholder=\"Type\" />" +
+                            "<div id=new_user_save>Save</div>"+
+                        "</div>";
         for (User u : users) {
             div += "<div class=settings_list_users>" +
-                    "<img src=/resources/img/avatars/1.jpg width=100px height=100px class=settings_users_list_avatar />" +
+                    "<img src=/resources/img/avatars/1.jpg width=106px height=106px class=settings_users_list_avatar />" +
                     "<div class=settings_users_list_specs_box>" +
-                    "<b style=\"text-decoration:underline;\">" + u.getName() + " " + u.getSurname() + "</b></br>" +
-                    "<b>Status:</b>" + u.getStatus() + "</br>" +
-                    "<b>Fine:</b>" + u.getFine() +
+                    "<b>Name: </b><input type=text class=settings_inputs_users_name placeholder=\"Name\" value=\"Ilia Pro\" /></br>" +
+                    "<b>Adress: </b><input type=text class=settings_inputs_users_adress placeholder=\"Adress\" value=\"Zalupalend\" /></br>" +
+                    "<b>Phone number: </b><input type=text class=settings_inputs_users_phone placeholder=\"Phone number\" value=\"8 800 555 35 35\" /></br>" +
+                    "<b>id: </b>228</br>" +
+                    "<b>Type: </b><input type=text class=settings_inputs_users_type placeholder=\"Type\" value=\"admin\" /></br>" +
                     "</div>" +
-                    "<div class=settings_users_list_modify id=" + u.getId() + ">Modify</div>" +
+                    "<div class=settings_users_list_modify id=" + u.getId() + ">Save</div>" +
                     "</div>";
         }
         return div + "</div>";
     }
 
     protected static String createListOfOrdersBlock(List<Order> orders) throws SQLException {
-        String div = "<div class=settings_type_box id=settings_orders>" +
-                "<div id=new_book>+ Add a new book</div>";
+        String div = "<div class=settings_type_box id=settings_orders>";
         Document d;
         for (Order or : orders) {
              d = getDocumentByOrder(or);
             div += "<div class=settings_list_orders>" +
-                    "<img src=/resources/img/books/1.jpg width=100px height=100px class=settings_orders_list_avatar />" +
+                    "<img src=/resources/img/books/1.jpg width=62px height=62px class=settings_orders_list_avatar />" +
                     "<div class=settings_orders_list_specs_box>" +
                     "<b style=\"text-decoration:underline;\">"+ d.getTitle()+"</b></br>" +
-                    "#book #chtenie #hashtag</br>" +
+                    "<b>Status: </b>Wait a returning</br>" +
                     "<b>Return date:</b>"+ getDate(or.getFinishTime()) +
                     "</div>" +
-                    "<div class=settings_orders_list_modify id=228>Modify</div>" +
+                    "<div class=settings_orders_list_modify id=228>Close</div>" +
                     "</div>";
         }
         return div + "</div>";

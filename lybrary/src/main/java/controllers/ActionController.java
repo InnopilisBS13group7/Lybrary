@@ -35,11 +35,17 @@ public class ActionController extends controllers.Controller {
                     "</div>" : "") +
                     "<div class=settings_type_box id=settings_profile>" +
                         "<p class=setting_parameter_name><b>Change name</b></p>" +
-                        "<input type=text class=settings_input id=settings_name placeholder=\"New name\" style=\"margin-top:-8px\" />" +
-                        "<input type=text class=settings_input id=settings_surname placeholder=\"New surname\" />" +
+                        "<input type=text class=settings_input id=settings_name placeholder=\"New name\" style=\"margin-top:-8px\" value=\"Ilia\" />" +
+                        "<input type=text class=settings_input id=settings_surname placeholder=\"New surname\" value=\"Pro\" />" +
                         "<p class=setting_parameter_name style=\"margin-top:16px\"><b>Change password</b></p>" +
-                        "<input type=text class=settings_input id=settings_current_password placeholder=\"Current password\" style=\"margin-top:-8px\" />" +
-                        "<input type=text class=settings_input id=settings_new_password placeholder=\"New password\" />" +
+                        "<input type=password class=settings_input id=settings_current_password placeholder=\"Current password\" style=\"margin-top:-8px\" />" +
+                        "<input type=password class=settings_input id=settings_new_password placeholder=\"New password\" />" +
+                        "<p class=setting_parameter_name style=\"margin-top:16px\"><b>Change adress</b></p>" +
+                        "<input type=text class=settings_input id=settings_adress placeholder=\"Your adress\" style=\"margin-top:-8px\" value=\"Moi adress ne dom i ne ulitsa\" />" +
+                        "<p class=setting_parameter_name style=\"margin-top:16px\"><b>Change phone number</b></p>" +
+                        "<input type=text class=settings_input id=settings_phone placeholder=\"Phone number\" style=\"margin-top:-8px\" value=\"8 800 555 35 35\" />" +
+                        "<p class=setting_parameter_name style=\"margin-top:16px\"><b>Your id is 228</b></p>" +
+                        "<p class=setting_parameter_name style=\"margin-top:16px\"><b>Your type is ilososka</b></p>" +
                         "<div id=settings_profile_save>Save</div>" +
                     "</div>" +
                     createListOfUsersBlock(getAllUsers()) +
@@ -57,7 +63,6 @@ public class ActionController extends controllers.Controller {
 			        "</div>" +*/
                     createListOfOrdersBlock(getAllOrders()) +
                     /*"<div class=settings_type_box id=settings_orders>" +
-                        "<div id=new_book>+ Add a new book</div>" +
                         "<div class=settings_list_orders>" +
                             "<img src=1.jpg width=100px height=100px class=settings_orders_list_avatar />" +
                             "<div class=settings_orders_list_specs_box>" +

@@ -86,7 +86,24 @@ public class BookingController extends Controller {
     @RequestMapping(value = "/listItems", method = POST)
     public String listItems() {
         DBHandler db;
-        String divList = "";
+        String divList = "<div id=new_doc_box>" +
+                            "<div class=new_doc id=new_book>+ Add a new book</div>" +
+                            "<div class=new_doc id=new_av>+ Add a new audio/video</div>" +
+                            "<div class=add_block id=add_block_book>" +
+                                "<input class=add_inputs id=add_book_title placeholder=Title />" +
+                                "<input class=add_inputs id=add_book_author placeholder=Authors />" +
+                                "<input class=add_inputs id=add_book_publisher placeholder=Publisher />" +
+                                "<input class=add_inputs id=add_book_year placeholder=Year />" +
+                                "<input class=add_inputs id=add_book_edition placeholder=Edition />" +
+                                "<input class=add_inputs id=add_book_note placeholder=Note />" +
+                                "<div class=add_save id=add_save_book>Add</div>" +
+                            "</div>" +
+                            "<div class=add_block id=add_block_av>" +
+                                "<input class=add_inputs id=add_av_title placeholder=Title />" +
+                                "<input class=add_inputs id=add_av_author placeholder=Authors />" +
+                                "<div class=add_save id=add_save_av>Add</div>" +
+                            "</div>" +
+                        "</div>";
         try {
             db = new DBHandler();
             Statement statement = db.getConnection().createStatement();

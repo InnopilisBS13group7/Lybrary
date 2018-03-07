@@ -6,4 +6,5 @@ $(document).ready(function(){
 	$("#first_menu_block").delay(200).animate({"width":"30px"}, 150);
 	$("#second_menu_block").delay(200).animate({"width":"30px"}, 250);
 	$("#third_menu_block").delay(200).animate({"width":"30px"}, 350);
+	$.getScript('../resources/scripts/profile.js');
 });
