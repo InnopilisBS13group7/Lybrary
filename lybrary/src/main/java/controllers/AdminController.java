@@ -113,11 +113,9 @@ public class AdminController extends Controller {
     @RequestMapping(value = "/modifyUser", method = RequestMethod.POST)
     public static String modifyUser(@RequestParam(value = "id", required = false, defaultValue = "Not found") String id,
                                     @RequestParam(value = "name", required = false, defaultValue = "Not found") String name,
-//                                    @RequestParam(value = "surname", required = false, defaultValue = "Not found") String surname,
-                                    @RequestParam(value = "fine", required = false, defaultValue = "Not found") String fine,
                                     @RequestParam(value = "address", required = false, defaultValue = "Not found") String address,
                                     @RequestParam(value = "phone", required = false, defaultValue = "Not found") String phone,
-                                    @RequestParam(value = "status", required = false, defaultValue = "Not found") String status)
+                                    @RequestParam(value = "type", required = false, defaultValue = "Not found") String status)
             throws SQLException {
         DBHandler db;
         db = new DBHandler();
@@ -134,10 +132,9 @@ public class AdminController extends Controller {
                 "surname ='" + surname + "', " +
                 "address ='" + address + "', " +
                 "phone ='" + phone + "', " +
-                "status ='" + status + "', " +
-                "fine =" + fine + " " +
+                "status ='" + status + "' " +
                 "WHERE id = " + id;
-//        System.out.println(query);
+        System.out.println(query);
         statement.execute(query);
         return "true";
     }

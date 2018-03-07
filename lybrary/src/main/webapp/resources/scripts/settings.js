@@ -47,7 +47,7 @@ $(document).ready(function(){
 		// alert("work")
 		var object = $(this).parent();
 		var id = $(this).attr("id");
-		$.post("/modifyUser", {id:id, name:object.find(".settings_inputs_users_name").val(), adress:find(".settings_inputs_users_adress").val(), phone:find(".settings_inputs_users_phone").val(), type:find(".settings_inputs_users_type").val()}, function(result){
+		$.post("/modifyUser", {id:id, name:object.find(".settings_inputs_users_name").val(), address:object.find(".settings_inputs_users_adress").val(), phone:object.find(".settings_inputs_users_phone").val(), type:object.find(".settings_inputs_users_type").val()}, function(result){
 			alert(result)
 		});
 	});

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/main/java/controllers/AdminController.java" line="173" />
+    <bookmark url="file://$PROJECT_DIR$/src/main/java/controllers/AdminController.java" line="170" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b151b102-06c1-4f3f-9749-6354a6811249" name="Default" comment="" />
@@ -111,26 +111,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AdminController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AdminController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/controllers/AdminController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="514">
-              <caret line="60" column="21" lean-forward="false" selection-start-line="60" selection-start-column="21" selection-end-line="60" selection-end-column="21" />
+            <state relative-caret-position="579">
+              <caret line="134" column="41" lean-forward="false" selection-start-line="134" selection-start-column="41" selection-end-line="134" selection-end-column="41" />
               <folding>
                 <element signature="method#modifyDocument#0;class#AdminController#0" expanded="false" />
                 <element signature="method#addNewuser#0;class#AdminController#0" expanded="false" />
-                <element signature="method#modifyUser#0;class#AdminController#0" expanded="false" />
                 <element signature="method#deleteUser#0;class#AdminController#0" expanded="false" />
                 <element signature="method#deleteDocumentById#0;class#AdminController#0" expanded="false" />
                 <element signature="method#deleteDocumentByParameters#0;class#AdminController#0" expanded="false" />
                 <element signature="method#closeOrder#0;class#AdminController#0" expanded="false" />
                 <element signature="method#main#0;class#AdminController#0" expanded="false" />
-                <marker date="1520429363147" expanded="true" signature="1456:1567" ph="select * fro... documents" />
-                <marker date="1520429363147" expanded="true" signature="1730:2036" ph="insert into documents... " />
-                <marker date="1520429363147" expanded="true" signature="1730:2070" ph="insert into documents... " />
-                <marker date="1520429363147" expanded="true" signature="2677:2786" ph="select * fro... documents" />
-                <marker date="1520429363147" expanded="true" signature="2949:3070" ph="insert into documents... " />
-                <marker date="1520429363147" expanded="true" signature="2949:3101" ph="insert into documents... " />
+                <marker date="1520432147430" expanded="true" signature="1456:1567" ph="select * fro... documents" />
+                <marker date="1520432147430" expanded="true" signature="1730:2036" ph="insert into documents... " />
+                <marker date="1520432147430" expanded="true" signature="1730:2070" ph="insert into documents... " />
+                <marker date="1520432147430" expanded="true" signature="2677:2786" ph="select * fro... documents" />
+                <marker date="1520432147430" expanded="true" signature="2949:3070" ph="insert into documents... " />
+                <marker date="1520432147430" expanded="true" signature="2949:3101" ph="insert into documents... " />
+                <marker date="1520432147430" expanded="true" signature="4178:4213" ph="select * fro... documents" />
+                <marker date="1520432147430" expanded="true" signature="4566:4955" ph="UPDATE documents... " />
+                <marker date="1520432147430" expanded="true" signature="6954:6985" ph="select * fro... users" />
+                <marker date="1520432147430" expanded="true" signature="7155:7436" ph="UPDATE users... " />
+                <marker date="1520432147430" expanded="true" signature="7918:7949" ph="select * fro... users" />
+                <marker date="1520432147430" expanded="true" signature="8119:8168" ph="DELETE from users... " />
+                <marker date="1520432147430" expanded="true" signature="8631:8666" ph="select * fro... documents" />
+                <marker date="1520432147430" expanded="true" signature="8836:8889" ph="DELETE from documents... " />
+                <marker date="1520432147430" expanded="true" signature="9660:9769" ph="select * fro... documents" />
+                <marker date="1520432147430" expanded="true" signature="9933:10060" ph="DELETE from documents... " />
+                <marker date="1520432147430" expanded="true" signature="10512:10544" ph="select * fro... orders" />
+                <marker date="1520432147430" expanded="true" signature="10720:10818" ph="UPDATE orders... " />
               </folding>
             </state>
           </provider>
@@ -151,7 +162,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ActionController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ActionController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/controllers/ActionController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="580">
@@ -325,13 +336,13 @@
         <option value="$PROJECT_DIR$/src/main/java/controllers/EntireController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/usercard.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/test/AdminControllerTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/controllers/AdminController.java" />
         <option value="$PROJECT_DIR$/src/main/java/controllers/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/test/AdminControllerT.java" />
         <option value="$PROJECT_DIR$/src/main/java/controllers/Controller.java" />
         <option value="$PROJECT_DIR$/src/main/java/test/Test2.java" />
         <option value="$PROJECT_DIR$/src/main/java/controllers/BookingController.java" />
         <option value="$PROJECT_DIR$/src/main/java/test/BookingControllerT.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controllers/AdminController.java" />
       </list>
     </option>
   </component>
@@ -814,7 +825,7 @@
       <workItem from="1520170661660" duration="6659000" />
       <workItem from="1520179162550" duration="4375000" />
       <workItem from="1520187516817" duration="3625000" />
-      <workItem from="1520411103382" duration="19263000" />
+      <workItem from="1520411103382" duration="20134000" />
     </task>
     <servers />
   </component>
@@ -851,7 +862,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="157010000" />
+    <option name="totallyTimeSpent" value="157881000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -864,7 +875,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32821724" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -876,9 +886,9 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17430703" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29661942" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29661942" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293979" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.8178844" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5016358" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25746268" sideWeight="0.49615806" order="0" side_tool="false" content_ui="combo" />
@@ -1233,29 +1243,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/AdminController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="514">
-          <caret line="60" column="21" lean-forward="false" selection-start-line="60" selection-start-column="21" selection-end-line="60" selection-end-column="21" />
-          <folding>
-            <element signature="method#modifyDocument#0;class#AdminController#0" expanded="false" />
-            <element signature="method#addNewuser#0;class#AdminController#0" expanded="false" />
-            <element signature="method#modifyUser#0;class#AdminController#0" expanded="false" />
-            <element signature="method#deleteUser#0;class#AdminController#0" expanded="false" />
-            <element signature="method#deleteDocumentById#0;class#AdminController#0" expanded="false" />
-            <element signature="method#deleteDocumentByParameters#0;class#AdminController#0" expanded="false" />
-            <element signature="method#closeOrder#0;class#AdminController#0" expanded="false" />
-            <element signature="method#main#0;class#AdminController#0" expanded="false" />
-            <marker date="1520429363147" expanded="true" signature="1456:1567" ph="select * fro... documents" />
-            <marker date="1520429363147" expanded="true" signature="1730:2036" ph="insert into documents... " />
-            <marker date="1520429363147" expanded="true" signature="1730:2070" ph="insert into documents... " />
-            <marker date="1520429363147" expanded="true" signature="2677:2786" ph="select * fro... documents" />
-            <marker date="1520429363147" expanded="true" signature="2949:3070" ph="insert into documents... " />
-            <marker date="1520429363147" expanded="true" signature="2949:3101" ph="insert into documents... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/test/AdminControllerTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
@@ -1380,6 +1367,40 @@
           <caret line="54" column="30" lean-forward="true" selection-start-line="54" selection-start-column="30" selection-end-line="54" selection-end-column="30" />
           <folding>
             <element signature="method#toProfile#0;class#ActionController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/AdminController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="579">
+          <caret line="134" column="41" lean-forward="false" selection-start-line="134" selection-start-column="41" selection-end-line="134" selection-end-column="41" />
+          <folding>
+            <element signature="method#modifyDocument#0;class#AdminController#0" expanded="false" />
+            <element signature="method#addNewuser#0;class#AdminController#0" expanded="false" />
+            <element signature="method#deleteUser#0;class#AdminController#0" expanded="false" />
+            <element signature="method#deleteDocumentById#0;class#AdminController#0" expanded="false" />
+            <element signature="method#deleteDocumentByParameters#0;class#AdminController#0" expanded="false" />
+            <element signature="method#closeOrder#0;class#AdminController#0" expanded="false" />
+            <element signature="method#main#0;class#AdminController#0" expanded="false" />
+            <marker date="1520432147430" expanded="true" signature="1456:1567" ph="select * fro... documents" />
+            <marker date="1520432147430" expanded="true" signature="1730:2036" ph="insert into documents... " />
+            <marker date="1520432147430" expanded="true" signature="1730:2070" ph="insert into documents... " />
+            <marker date="1520432147430" expanded="true" signature="2677:2786" ph="select * fro... documents" />
+            <marker date="1520432147430" expanded="true" signature="2949:3070" ph="insert into documents... " />
+            <marker date="1520432147430" expanded="true" signature="2949:3101" ph="insert into documents... " />
+            <marker date="1520432147430" expanded="true" signature="4178:4213" ph="select * fro... documents" />
+            <marker date="1520432147430" expanded="true" signature="4566:4955" ph="UPDATE documents... " />
+            <marker date="1520432147430" expanded="true" signature="6954:6985" ph="select * fro... users" />
+            <marker date="1520432147430" expanded="true" signature="7155:7436" ph="UPDATE users... " />
+            <marker date="1520432147430" expanded="true" signature="7918:7949" ph="select * fro... users" />
+            <marker date="1520432147430" expanded="true" signature="8119:8168" ph="DELETE from users... " />
+            <marker date="1520432147430" expanded="true" signature="8631:8666" ph="select * fro... documents" />
+            <marker date="1520432147430" expanded="true" signature="8836:8889" ph="DELETE from documents... " />
+            <marker date="1520432147430" expanded="true" signature="9660:9769" ph="select * fro... documents" />
+            <marker date="1520432147430" expanded="true" signature="9933:10060" ph="DELETE from documents... " />
+            <marker date="1520432147430" expanded="true" signature="10512:10544" ph="select * fro... orders" />
+            <marker date="1520432147430" expanded="true" signature="10720:10818" ph="UPDATE orders... " />
           </folding>
         </state>
       </provider>
