@@ -33,17 +33,18 @@ $(document).ready(function(){
 			$("#settings_block").animate({"height":"-=218px"}, 150);
 		}
 	});
-	$("#settings_profile_save").click(function(){
-		$.post("/profileSettings", {name:$("#new_user_inputs_name").val(), surname:$("#new_user_inputs_surname").val(), email:$("#new_user_inputs_email").val(), password:$("#new_user_inputs_password").val(), type:$("#new_user_inputs_type").val()}, function(result){
+	$("#new_user_save").click(function(){
+		$.post("/addNewUser", {name:$("#new_user_inputs_name").val(), surname:$("#new_user_inputs_surname").val(), email:$("#new_user_inputs_email").val(), password:$("#new_user_inputs_password").val(), status:$("#new_user_inputs_type").val()}, function(result){
 			alert(result)
 		});
 	});
-	$("#new_user_save").click(function(){
-		$.post("/newUser", {name:$("#settings_name").val(), surname:$("#settings_surname").val(), password:$("#settings_password").val(), adress:$("#settings_adress").val(), phone:$("#settings_phone").val()}, function(result){
+	$("#settings_profile_save").click(function(){
+		$.post("/profileSettings", {name:$("#settings_name").val(), surname:$("#settings_surname").val(), currentPassword:$("#settings_current_password").val(), newPassword:$("#settings_new_password").val(), address:$("#settings_adress").val(), phone:$("#settings_phone").val()}, function(result){
 			alert(result)
 		});
 	});
 	$(".settings_users_list_modify").click(function(){
+		// alert("work")
 		var object = $(this).parent();
 		var id = $(this).attr("id");
 		$.post("/modifyUser", {id:id, name:object.find(".settings_inputs_users_name").val(), adress:find(".settings_inputs_users_adress").val(), phone:find(".settings_inputs_users_phone").val(), type:find(".settings_inputs_users_type").val()}, function(result){
@@ -52,7 +53,7 @@ $(document).ready(function(){
 	});
 	$(".settings_orders_list_modify").click(function(){
 		var id = $(this).attr("id");
-		$.post("/returnAdmin", {id:id}, function(result){
+		$.post("/closeOrder", {orderId:id}, function(result){
 			alert(result)
 		});
 	});

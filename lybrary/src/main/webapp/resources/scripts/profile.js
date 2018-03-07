@@ -3,7 +3,7 @@ $(document).ready(function(){
 		$(this).find(".books_inside").animate({"opacity":"1"}, 150);
 	});
 	$(".return_book").click(function(){
-		$.post("/return", {order:$(this).attr("id")}, function(result){
+		$.post("/returnDocument", {orderId:$(this).attr("id")}, function(result){
 			alert(result);
 		});
 	});

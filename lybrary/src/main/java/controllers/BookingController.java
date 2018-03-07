@@ -2,11 +2,10 @@ package controllers;
 
 
 import DateBase.DBHandler;
+import Models.Document;
+import Models.User;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.CookieValue;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.Cookie;
 import java.sql.ResultSet;
@@ -16,6 +15,7 @@ import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
@@ -36,7 +36,7 @@ public class BookingController extends Controller {
             Statement ordersStatement = db.getConnection().createStatement();
             String documentGetQuery = "select * from documents where id = " + documentId + "";
             String usersGetQuery = "select * from users where id = " + getIdFromCookie(cookieUserCode.getValue()) + "";
-            String ordersGetQuery = "select * from orders where userId = " + getIdFromCookie(cookieUserCode.getValue()) + "";
+            String ordersGetQuery = "select * from orders where userId = " + getIdFromCookie(cookieUserCode.getValue()) + " AND status = 'open'";
 
             System.out.println(ordersGetQuery);
             ResultSet usersResultSet = userStatement.executeQuery(usersGetQuery);
@@ -84,64 +84,71 @@ public class BookingController extends Controller {
     }
 
     @RequestMapping(value = "/listItems", method = POST)
-    public String listItems() {
+    public String listItems(@CookieValue(value = "user_code", required = false) Cookie cookieUserCode) throws SQLException {
+        if (isCookieWrong(cookieUserCode)) return "false";
+        User u = getClientUserObject(getIdFromCookie(cookieUserCode.getValue()));
         DBHandler db;
-        String divList = "<div id=new_doc_box>" +
-                            "<div class=new_doc id=new_book>+ Add a new book</div>" +
-                            "<div class=new_doc id=new_av>+ Add a new audio/video</div>" +
-                            "<div class=add_block id=add_block_book>" +
-                                "<input class=add_inputs id=add_book_title placeholder=Title />" +
-                                "<input class=add_inputs id=add_book_author placeholder=Authors />" +
-                                "<input class=add_inputs id=add_book_publisher placeholder=Publisher />" +
-                                "<input class=add_inputs id=add_book_year placeholder=Year />" +
-                                "<input class=add_inputs id=add_book_edition placeholder=Edition />" +
-                                "<input class=add_inputs id=add_book_note placeholder=Note />" +
-                                "<div class=add_save id=add_save_book>Add</div>" +
-                            "</div>" +
-                            "<div class=add_block id=add_block_av>" +
-                                "<input class=add_inputs id=add_av_title placeholder=Title />" +
-                                "<input class=add_inputs id=add_av_author placeholder=Authors />" +
-                                "<div class=add_save id=add_save_av>Add</div>" +
-                            "</div>" +
-                        "</div>";
-        try {
-            db = new DBHandler();
-            Statement statement = db.getConnection().createStatement();
-            String getQuery = "SELECT * FROM documents";
-            ResultSet resultSet = statement.executeQuery(getQuery);
-            String title, author, description, image, teg, type, id, status;
-            int amount;
-            while (resultSet.next()) {
-                title = resultSet.getString("title");
-                author = resultSet.getString("author");
-                description = resultSet.getString("description");
-                amount = resultSet.getInt("amount");
-                teg = resultSet.getString("teg");
-                type = resultSet.getString("type");
-                id = resultSet.getString("id");
-                status = resultSet.getString("status");
-                divList = divList + "<div class=books_box> <img src=/resources/img/books/1.jpg class=cover width=66px height=100px /> " +
-                        "<p class=bookname>" +
-                        title +
-                        "</p>" +
-                        " <p class=type>" +
-                        teg + " #" + status +
-                        "</p>" +
-                        " <p class=description>" +
-                        description +
-                        "</p> " +
-                        "<div class=bookit id=" + id + ">Book</div> <p class=number>There is " +
-                        amount +
-                        "</p> " +
-                        "</div>";
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        String divList = (u.getStatus().equals("admin")?"<div id=new_doc_box>" +
+                "<div class=new_doc id=new_book>+ Add a new book</div>" +
+                "<div class=new_doc id=new_av>+ Add a new audio/video</div>" +
+                "<div class=add_block id=add_block_book>" +
+                "<input class=add_inputs id=add_book_title placeholder=Title />" +
+                "<input class=add_inputs id=add_book_author placeholder=Authors />" +
+                "<input class=add_inputs id=add_book_publisher placeholder=Publisher />" +
+                "<input class=add_inputs id=add_book_year placeholder=Year />" +
+                "<input class=add_inputs id=add_book_edition placeholder=Edition />" +
+                "<input class=add_inputs id=add_book_note placeholder=Note />" +
+                "<div class=add_save id=add_save_book>Add</div>" +
+                "</div>" +
+                "<div class=add_block id=add_block_av>" +
+                "<input class=add_inputs id=add_av_title placeholder=Title />" +
+                "<input class=add_inputs id=add_av_author placeholder=Authors />" +
+                "<div class=add_save id=add_save_av>Add</div>" +
+                "</div>" +
+                "</div>":"");
+
+        List<Document> list = getAllDocuments();
+        for (Document d: getAllDocuments()){
+            divList = divList + "<div class=books_box><img src=/resources/img/books/"+(d.getType().equals("book")?"1.jpg":"2.jpg")+" class=cover width=79px height=121px />" +
+                    "<p class=books_text>" +
+                    "Title:&nbsp;<input class=books_inputs_title placeholder=\"Title\" value=\""+d.getTitle()+"\" /></br>" +
+                    "Author:&nbsp;<input class=books_inputs_author placeholder=\"Author\" value=\""+d.getAuthor()+"\" /></br>" +
+
+                    (d.getType().equals("book")?"Publisher:&nbsp;<input class=books_inputs_publisher placeholder=\"Publisher\" value=\""+d.getPublisher()+"\" /></br>" +
+                    "Year:&nbsp;<input class=books_inputs_year placeholder=\"Year\" value=\""+ d.getYear() +"\" /></br>" +
+                    "Edition:&nbsp;<input class=books_inputs_edition placeholder=\"Edition\" value=\""+d.getEdition()+"\" /></br>" +
+                    "Note:&nbsp;<input class=books_inputs_note placeholder=\"Note\" value=\""+d.getDescription()+"\" /></br>":"") +
+                    "</p>" +
+                    "<div class=bookit id=" + d.getId() + ">Book</div> <p class=number>There is " +
+                    d.getAmount() +
+                    "</p> " +
+                    "<div class=modifyit id=" + d.getId()+ ">Modify</div>" +
+                    "</div>";
         }
 
 
         return divList;
     }
 
+
+    @RequestMapping(value = "/returnDocument", method = RequestMethod.POST)
+    public String returnDocument(@CookieValue(value = "user_code", required = false) Cookie cookieUserCode,
+                                 @RequestParam(value = "orderId") String orderId)
+            throws SQLException {
+        if (isCookieWrong(cookieUserCode)) return "false";
+
+        DBHandler db;
+        db = new DBHandler();
+        Statement statement = db.getConnection().createStatement();
+
+        String query = "UPDATE orders SET " +
+                "status ='" + "finished" + "' " +
+                "WHERE id = " + orderId;
+        System.out.println(query);
+        statement.execute(query);
+        statement.close();
+
+        return "true";
+    }
 
 }

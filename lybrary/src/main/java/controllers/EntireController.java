@@ -38,7 +38,7 @@ public class EntireController extends controllers.Controller{
         String name = "Not", surname = "found:(", chlen = "My dick is very very big", fine = "";
         String status,page = "[uuue";
         String booki = "";
-        String userId = "";
+        String userId = "",address,phone;
         if (cookieUserCode != null) {
             getQuery = "select * from users where cookieId = '" + cookieUserCode.getValue() + "'";
             ResultSet resultSet = statement.executeQuery(getQuery);
@@ -47,11 +47,14 @@ public class EntireController extends controllers.Controller{
             name = resultSet.getString("name") + " " + resultSet.getString("surname"); 
             status = resultSet.getString("status");
             userId = resultSet.getString("id");
+            fine = resultSet.getString("fine");
+            address = resultSet.getString("address");
+            phone = resultSet.getString("phone");
 
             //create page-----
             Statement historyStatement = db.getConnection().createStatement();
 
-            String historyQuery = "select * from orders where userId = '" + userId + "'";
+            String historyQuery = "select * from orders where userId = '" + userId + "'  AND status = 'open'";
             ResultSet ordersResultSet = statement.executeQuery(historyQuery);
             String title,time;
             long keepingTime;
@@ -62,7 +65,7 @@ public class EntireController extends controllers.Controller{
                 keepingTime = ordersResultSet.getLong("finishTime");
                 booki = booki + "<div class=\"books\" style=\"margin-left:" + margin + "px\"> " +
                         "<div class=books_inside>" + getDate(keepingTime) +
-                        "<div class=return_book id=228>Return the book</div></div>" +
+                        "<div class=return_book id="+ordersResultSet.getString("id")+">Return the book</div></div>" +
                         "<img src=\"/resources/img/books/1.jpg\" width=\"190px\" height=\"289px\" /> " +
                         "<p class=\"bookname\">" + "3 PIGS</p> " +
                         "</div>";
@@ -74,9 +77,11 @@ public class EntireController extends controllers.Controller{
 
             model.addAttribute("name", name);
             model.addAttribute("status", status);
-            model.addAttribute("fine", "100$");
-            model.addAttribute("chlen", chlen);
+            model.addAttribute("fine", fine+"$");
             model.addAttribute("booki", booki);
+            model.addAttribute("address", address);
+            model.addAttribute("id", userId);
+            model.addAttribute("phone", phone);
             /*if <check>    */
 
             return "usercard";

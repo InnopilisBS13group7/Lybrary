@@ -287,4 +287,5 @@ $(document).ready(function(){
 		}, 200);
 		$("#enter_error_back").animate({"opacity":"0"}, 400).slideUp(0);
 	});
+	$.getScript('../resources/scripts/profile.js');
 });

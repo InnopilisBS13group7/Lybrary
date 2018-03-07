@@ -10,5 +10,4 @@ Models\Document.class
 Models\User.class
 emailHandler\EmailResponse.class
 Models\Order.class
-test\AdminControllerTest.class
 controllers\Controller.class

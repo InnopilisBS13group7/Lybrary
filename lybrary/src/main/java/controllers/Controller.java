@@ -15,7 +15,6 @@ import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-import static com.sun.tools.doclint.Entity.ge;
 
 public class Controller {
 
@@ -68,7 +67,7 @@ public class Controller {
             Statement orderStatement = db.getConnection().createStatement();
             Statement usersStatement = db.getConnection().createStatement();
 
-            String historyQuery = "select * from orders where userId = '" + userId + "'";
+            String historyQuery = "select * from orders where userId = '" + userId + "' AND status = 'open'";
             String usersQuery = "select * from users where id = '" + userId + "'";
 //            String ordersQuery = "select * from users where id = '" + userId + "'";
 
@@ -82,6 +81,10 @@ public class Controller {
             String surname = usersResultSet.getString("surname");
             String status = usersResultSet.getString("status");
             String email = usersResultSet.getString("email");
+            String fine = usersResultSet.getString("fine");
+
+            String address = usersResultSet.getString("address");
+            String phone = usersResultSet.getString("phone");
 
             String title, time, items = "";
             long keepingTime;
@@ -92,7 +95,7 @@ public class Controller {
                 keepingTime = ordersResultSet.getLong("finishTime");
                 items = items + "<div class=\"books\" style=\"margin-left:" + margin + "px\"> " +
                         "<div class=books_inside>" + getDate(keepingTime) +
-                        "<div class=return_book id=228>Return the book</div></div>" +
+                        "<div class=return_book id="+ordersResultSet.getString("id")+">Return the book</div></div>" +
                         "<img src=\"/resources/img/books/1.jpg\" width=\"190px\" height=\"289px\" /> " +
                         "<p class=\"bookname\">" + "3 PIGS</p> " +
                         "</div>";
@@ -108,10 +111,14 @@ public class Controller {
                     "<p id=\"settings_bottom\">Settings</p> " +
                     "<p class=\"usercard_info_text1\" style=\"margin-top:-8px\">Status:</p> " +
                     "<p class=\"usercard_info_text1\" style=\"margin-top:22px\">fine:</p> " +
-                    "<p class=\"usercard_info_text1\" style=\"margin-top:52px\">Chlen:</p> " +
+                    "<p class=\"usercard_info_text1\" style=\"margin-top:52px\">Address:</p> " +
+                    "<p class=\"usercard_info_text1\" style=\"margin-top:82px\">Phone:</p> " +
+                    "<p class=\"usercard_info_text1\" style=\"margin-top:112px\">Card Id:</p> " +
                     "<p class=\"usercard_info_text2\" style=\"margin-top:-8px\">" + status + "</p> " +
-                    "<p class=\"usercard_info_text2\" style=\"margin-top:22px\">228$</p> " +
-                    "<p class=\"usercard_info_text2\" style=\"margin-top:52px\">Bolshoi</p> " +
+                    "<p class=\"usercard_info_text2\" style=\"margin-top:22px\">"+fine+"</p> " +
+                    "<p class=\"usercard_info_text2\" style=\"margin-top:52px\">"+address+"</p> " +
+                    "<p class=\"usercard_info_text2\" style=\"margin-top:82px\">"+phone+"</p> " +
+                    "<p class=\"usercard_info_text2\" style=\"margin-top:112px\">"+userId+"</p> " +
                     "</div> " +
                     "<div class=\"blocks\" id=\"history\"> " +
                     "<div class=\"line\"> " +
@@ -119,8 +126,6 @@ public class Controller {
                     "</div> " +
                     "</div> " +
                     "</div>";
-
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -165,6 +170,26 @@ public class Controller {
         return true;
     }
 
+    protected static boolean addNewUserToTheSystem(String name, String surname, String email, String password,String status) throws SQLException {
+        DBHandler db;
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        db = new DBHandler();
+        Statement statement = db.getConnection().createStatement();
+        String getQuery = "select * from users where email = '" + email + "'";
+        ResultSet resultSet = statement.executeQuery(getQuery);
+        if (resultSet.next()) return false;
+        String encodedPassword = encoder.encode(password);
+        String query = "insert into users (email,password,name,surname,status) values('"
+                + email + "\', \'"
+                + encodedPassword + "\', \'"
+                + name + "\', \'"
+                + surname + "\', \'"
+                + status + "\')";
+        statement.execute(query);
+        statement.close();
+        return true;
+    }
+
     protected static List<User> getAllUsers() throws SQLException {
         List<User> list = new LinkedList<>();
         DBHandler db;
@@ -180,7 +205,9 @@ public class Controller {
                     resultSet.getString(5),
                     resultSet.getString(6),
                     resultSet.getString(7),
-                    resultSet.getInt(8)));
+                    resultSet.getInt(8),
+                    resultSet.getString(9),
+                    resultSet.getString(10)));
         }
         return list;
     }
@@ -221,7 +248,7 @@ public class Controller {
         return list;
     }
 
-    protected static Iterable getAllDocuments() throws SQLException {
+    protected static List<Document> getAllDocuments() throws SQLException {
         List<Document> list = new LinkedList<>();
         DBHandler db;
         db = new DBHandler();
@@ -236,7 +263,10 @@ public class Controller {
                     resultSet.getInt(5),
                     resultSet.getString(6),
                     resultSet.getString(7),
-                    resultSet.getString(8)));
+                    resultSet.getString(8),
+                    resultSet.getString("edition"),
+                    resultSet.getString("publisher"),
+                    resultSet.getInt("year")));
         }
         return list;
     }
@@ -264,7 +294,9 @@ public class Controller {
                 r.getString(5),
                 r.getString(6),
                 r.getString(7),
-                r.getInt(8));
+                r.getInt(8),
+                r.getString(9),
+                r.getString(10));
         statement.close();
         return user;
     }
@@ -288,23 +320,23 @@ public class Controller {
 
     protected static String createListOfUsersBlock(List<User> users) {
         String div = "<div class=settings_type_box id=settings_users>" +
-                        "<div id=new_user><p id=new_user_bottom>+ Add a new user</p>" +
-                            "<input type=text class=new_user_inputs id=new_user_inputs_name placeholder=\"Name\" />" +
-                            "<input type=text class=new_user_inputs id=new_user_inputs_surname placeholder=\"Surname\" />" +
-                            "<input type=text class=new_user_inputs id=new_user_inputs_email placeholder=\"email\" />" +
-                            "<input type=password class=new_user_inputs id=new_user_inputs_password placeholder=\"Password\" />" +
-                            "<input type=text class=new_user_inputs id=new_user_inputs_type placeholder=\"Type\" />" +
-                            "<div id=new_user_save>Save</div>"+
-                        "</div>";
+                "<div id=new_user><p id=new_user_bottom>+ Add a new user</p>" +
+                "<input type=text class=new_user_inputs id=new_user_inputs_name placeholder=\"Name\" />" +
+                "<input type=text class=new_user_inputs id=new_user_inputs_surname placeholder=\"Surname\" />" +
+                "<input type=text class=new_user_inputs id=new_user_inputs_email placeholder=\"email\" />" +
+                "<input type=password class=new_user_inputs id=new_user_inputs_password placeholder=\"Password\" />" +
+                "<input type=text class=new_user_inputs id=new_user_inputs_type placeholder=\"Type\" />" +
+                "<div id=new_user_save>Save</div>" +
+                "</div>";
         for (User u : users) {
             div += "<div class=settings_list_users>" +
                     "<img src=/resources/img/avatars/1.jpg width=106px height=106px class=settings_users_list_avatar />" +
                     "<div class=settings_users_list_specs_box>" +
-                    "<b>Name: </b><input type=text class=settings_inputs_users_name placeholder=\"Name\" value=\"Ilia Pro\" /></br>" +
-                    "<b>Adress: </b><input type=text class=settings_inputs_users_adress placeholder=\"Adress\" value=\"Zalupalend\" /></br>" +
-                    "<b>Phone number: </b><input type=text class=settings_inputs_users_phone placeholder=\"Phone number\" value=\"8 800 555 35 35\" /></br>" +
-                    "<b>id: </b>228</br>" +
-                    "<b>Type: </b><input type=text class=settings_inputs_users_type placeholder=\"Type\" value=\"admin\" /></br>" +
+                    "<b>Name: </b><input type=text class=settings_inputs_users_name placeholder=\"Name\" value=\""+ u.getName() + " " + u.getSurname() +"\" /></br>" +
+                    "<b>Adress: </b><input type=text class=settings_inputs_users_adress placeholder=\"Adress\" value=\""+u.getAddress()+"\" /></br>" +
+                    "<b>Phone number: </b><input type=text class=settings_inputs_users_phone placeholder=\"Phone number\" value=\""+u.getPhone()+"\" /></br>" +
+                    "<b>id: </b>"+u.getId()+"</br>" +
+                    "<b>Type: </b><input type=text class=settings_inputs_users_type placeholder=\"Type\" value=\"" + u.getStatus() + "\" /></br>" +
                     "</div>" +
                     "<div class=settings_users_list_modify id=" + u.getId() + ">Save</div>" +
                     "</div>";
@@ -315,20 +347,115 @@ public class Controller {
     protected static String createListOfOrdersBlock(List<Order> orders) throws SQLException {
         String div = "<div class=settings_type_box id=settings_orders>";
         Document d;
+        User u;
         for (Order or : orders) {
-             d = getDocumentByOrder(or);
+            d = getDocumentByOrder(or);
+            u = getClientUserObject(Integer.toString(or.getUserId()));
             div += "<div class=settings_list_orders>" +
                     "<img src=/resources/img/books/1.jpg width=62px height=62px class=settings_orders_list_avatar />" +
                     "<div class=settings_orders_list_specs_box>" +
-                    "<b style=\"text-decoration:underline;\">"+ d.getTitle()+"</b></br>" +
-                    "<b>Status: </b>Wait a returning</br>" +
-                    "<b>Return date:</b>"+ getDate(or.getFinishTime()) +
+                    "<b style=\"text-decoration:underline;\"> (" + or.getId() + ")" + d.getTitle()+ "   :" + u.getName() + " " + u.getSurname()  + "</b></br>" +
+                    "<b>Status: </b>"+or.getStatus()+"</br>" +
+                    "<b>Return date:</b>" + getDate(or.getFinishTime()) +
                     "</div>" +
-                    "<div class=settings_orders_list_modify id=228>Close</div>" +
+                    (or.getStatus().equals("closed") ? "":"<div class=settings_orders_list_modify id="+or.getId()+">Close</div>") +
                     "</div>";
         }
         return div + "</div>";
     }
 
 
+
+    //----------for tests
+    public static int numberOfUsers() throws SQLException {
+        DBHandler db;
+        db = new DBHandler();
+        Statement statement = db.getConnection().createStatement();
+        String getQuery = "SELECT * FROM users";
+        ResultSet resultSet = statement.executeQuery(getQuery);
+        int num = 0;
+        while (resultSet.next()) {
+            num++;
+        }
+        return num;
+    }
+
+    public static int numberOfDocuments() throws SQLException {
+        DBHandler db;
+        db = new DBHandler();
+        Statement statement = db.getConnection().createStatement();
+        String getQuery = "SELECT * FROM documents";
+        ResultSet resultSet = statement.executeQuery(getQuery);
+        int num = 0;
+        while (resultSet.next()) {
+            num += resultSet.getInt(5);
+        }
+        return num;
+    }
+
+    public static List<String> getUserInfo(String id) throws SQLException {
+        List<String> list = new LinkedList<String>();
+        DBHandler db;
+        db = new DBHandler();
+        Statement statement = db.getConnection().createStatement();
+        String getQuery = "select * from users where id = '" + id + "'";
+        ResultSet resultSet = statement.executeQuery(getQuery);
+        while (resultSet.next()) {
+            list.add(resultSet.getString(1));
+            list.add(resultSet.getString(4));
+            list.add(resultSet.getString(5));
+            list.add(resultSet.getString(2));
+            list.add(resultSet.getString(7));
+            list.add(resultSet.getString(8));
+        }
+        if(list.isEmpty()) return null;
+        return list;
+    }
+
+    public static String getUserIdByParameters(String name, String surname, String status) throws SQLException {
+        DBHandler db;
+        db = new DBHandler();
+        Statement statement = db.getConnection().createStatement();
+        String getQuery = "select * from users where name = '" + name + "' and surname= '" + surname + "' and status = '" + status + "'";
+        ResultSet resultSet = statement.executeQuery(getQuery);
+        if (!resultSet.next()) return "false";
+        return Integer.toString(resultSet.getInt(1));
+    }
+
+    public static boolean addNewUserToTheSystemWithStatus(String name, String surname, String email, String password, String status) throws SQLException {
+        DBHandler db;
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        String page = "[uuue";
+        String booki = "";
+        String userId = "";
+        db = new DBHandler();
+        Statement statement = db.getConnection().createStatement();
+        String getQuery = "select * from users where email = '" + email + "'";
+        ResultSet resultSet = statement.executeQuery(getQuery);
+        if (resultSet.next()) return false;
+        String encodedPassword = encoder.encode(password);
+        String query = "insert into users (email,password,name,surname,status) values('"
+                + email + "\', \'"
+                + encodedPassword + "\', \'"
+                + name + "\', \'"
+                + surname + "\',\'"
+                + status + "\')";
+        statement.execute(query);
+        resultSet = statement.executeQuery(getQuery);
+        resultSet.next();
+        userId = resultSet.getString("id");
+
+        return true;
+    }
+
+    public static Cookie getCookieFromId(String id) throws SQLException {
+        DBHandler db;
+        db = new DBHandler();
+        Statement statement = db.getConnection().createStatement();
+        String getQuery = "select * from users where id = '" + id + "'";
+        ResultSet resultSet = statement.executeQuery(getQuery);
+        if(!resultSet.next()) return null;
+        Cookie coo = new Cookie("cooka", resultSet.getString(6));
+        return coo;
+    }
 }

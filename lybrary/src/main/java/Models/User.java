@@ -1,6 +1,19 @@
 package Models;
 
 public class User {
+    public User(String id, String email, String password, String name, String surname, String cookieId, String status, int fine, String address, String phone) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+        this.status = status;
+        this.password = password;
+        this.cookieId = cookieId;
+        this.fine = fine;
+        this.phone = phone;
+        this.address = address;
+    }
+
     public String getId() {
         return id;
     }
@@ -17,17 +30,9 @@ public class User {
     private String password;
     private String cookieId;
     private int fine;
+    private String phone;
+    private String address;
 
-    public User(String id, String email, String password, String name, String surname, String cookieId, String status, int fine) {
-        this.id = id;
-        this.name = name;
-        this.surname = surname;
-        this.email = email;
-        this.status = status;
-        this.password = password;
-        this.cookieId = cookieId;
-        this.fine = fine;
-    }
 
     public int getFine() {
         return fine;
@@ -85,17 +90,21 @@ public class User {
         this.cookieId = cookieId;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", email='" + email + '\'' +
-                ", status='" + status + '\'' +
-                ", password='" + password + '\'' +
-                ", cookieId='" + cookieId + '\'' +
-                ", fine=" + fine +
-                '}';
+    public String getPhone() {
+        return phone;
     }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
 }
+

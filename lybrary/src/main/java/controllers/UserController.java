@@ -1,34 +1,72 @@
 package controllers;
 
 import DateBase.DBHandler;
+import Models.User;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.Cookie;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 @RestController
 public class UserController extends Controller {
 
-    @RequestMapping(value = "/returnDocument", method = RequestMethod.POST)
-    public String returnDocument(@CookieValue(value = "user_code", required = false) Cookie cookieUserCode,
-                                 @RequestParam(value = "documentId", required = false) String documentId,
-                                 @RequestParam(value = "orderId") String orderId)
-            throws SQLException {
-        if (isCookieWrong(cookieUserCode)) return "false";
 
+    @RequestMapping(value = "/profileSettings", method = RequestMethod.POST)
+    public static String profileSettings(@RequestParam(value = "name", required = false, defaultValue = "") String name,
+                                    @RequestParam(value = "surname", required = false, defaultValue = "") String surname,
+                                    @RequestParam(value = "address", required = false, defaultValue = "") String address,
+                                    @RequestParam(value = "phone", required = false, defaultValue = "") String phone,
+                                    @RequestParam(value = "newPassword", required = false, defaultValue = "") String newPassword,
+                                    @RequestParam(value = "currentPassword", required = false, defaultValue = "") String currentPassword,
+                                         @CookieValue(value = "user_code", required = false) Cookie cookieUserCode)
+            throws SQLException {
         DBHandler db;
         db = new DBHandler();
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         Statement statement = db.getConnection().createStatement();
+        User u = getClientUserObject(getIdFromCookie(cookieUserCode.getValue()));
+        String id = u.getId();
+        String getQuery = "select * from users where id = " + id;
+        ResultSet resultSet = statement.executeQuery(getQuery);
+        if (!resultSet.next()) return "Such user does not exist ";//does not exist such user
 
-        String query = "UPDATE orders SET " +
-                "status ='" + "finished" + "', " +
-                "WHERE id = " + orderId;
-//        System.out.println(query);
+        String encodedOldPassword = resultSet.getString("password");
+
+        String encodedNewPassword = encoder.encode(newPassword);
+        String query;
+        System.out.println(newPassword);
+        if (!currentPassword.equals("")) {
+            Boolean passwordValidation = encoder.matches(currentPassword, encodedOldPassword);
+            if (!passwordValidation) return "false";
+            else if (newPassword.length()>=8) {
+                query = "UPDATE users SET " +
+                        "name ='" + name + "', " +
+                        "surname ='" + surname + "', " +
+                        "address ='" + address + "', " +
+                        "phone ='" + phone + "', " +
+                        "password ='" + encodedNewPassword + "' " +
+                        "WHERE id = " + id;
+            } else {
+                query = "UPDATE users SET " +
+                        "name ='" + name + "', " +
+                        "surname ='" + surname + "', " +
+                        "address ='" + address + "', " +
+                        "phone ='" + phone + "' " +
+                        "WHERE id = " + id;
+            }
+        } else query = "UPDATE users SET " +
+                "name ='" + name + "', " +
+                "surname ='" + surname + "', " +
+                "address ='" + address + "', " +
+                "phone ='" + phone + "' " +
+                "WHERE id = " + id;
+
+        System.out.println(query);
         statement.execute(query);
-        statement.close();
-
-//        String userId = getIdFromCookie(cookieUserCode.getValue());
         return "true";
     }
+
 }

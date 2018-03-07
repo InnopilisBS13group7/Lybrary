@@ -32,10 +32,14 @@
                     <p id=settings_bottom>Settings</p>
                     <p class=usercard_info_text1 style=margin-top:-8px>Status:</p>
                     <p class=usercard_info_text1 style=margin-top:22px>fine:</p>
-                    <p class=usercard_info_text1 style=margin-top:52px>Chlen:</p>
+                    <p class=usercard_info_text1 style=margin-top:52px>Address:</p>
+                    <p class=usercard_info_text1 style=margin-top:82px>Phone:</p>
+                    <p class=usercard_info_text1 style=margin-top:112px>Card Id:</p>
                     <p class=usercard_info_text2 style=margin-top:-8px>${status}</p>
                     <p class=usercard_info_text2 style=margin-top:22px>${fine}</p>
-                    <p class=usercard_info_text2 style=margin-top:52px>${chlen}</p>
+                    <p class=usercard_info_text2 style=margin-top:52px>${address}</p>
+                    <p class=usercard_info_text2 style=margin-top:82px>${phone}</p>
+                    <p class=usercard_info_text2 style=margin-top:112px>${id}</p>
                 </div>
             </div>
             <div class=blocks id=history>

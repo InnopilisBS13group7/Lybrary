@@ -33,6 +33,7 @@ $(document).ready(function(){
 		$("#style20").load('../resources/style/more.css');
 		$.getScript('../resources/scripts/more.js');
 		need_scroll = false;
+		$.getScript('../resources/scripts/profile.js');
 	}
 	function scrollingDown(){
 		$("#enter_error").animate({"opacity":"0", "padding-top":"0px", "padding-bottom":"0px", "height":"0px", "margin-top":"0px"}, 200).css({"border-top":"none"}).slideUp(0);

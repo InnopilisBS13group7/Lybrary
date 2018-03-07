@@ -8,7 +8,65 @@ public class Document {
     private int amount;
     private String description;
     private String teg;
+
+    public Document(String id, String title, String author, String status, int amount, String description, String teg, String type, String edition, String publisher, int year) {
+        this.id = id;
+        this.title = title;
+        this.author = author;
+        this.status = status;
+        this.amount = amount;
+        this.description = description;
+        this.teg = teg;
+        this.type = type;
+        this.edition = edition;
+        this.publisher = publisher;
+        this.year = year;
+    }
+
     private String type;
+
+    public String getEdition() {
+        return edition;
+    }
+
+    public void setEdition(String edition) {
+        this.edition = edition;
+    }
+
+    private String edition;
+
+    public Document(String id, String title, String author, String status, int amount, String description, String teg, String type, String publisher, int year) {
+        this.id = id;
+        this.title = title;
+        this.author = author;
+        this.status = status;
+        this.amount = amount;
+        this.description = description;
+        this.teg = teg;
+        this.type = type;
+        this.publisher = publisher;
+        this.year = year;
+    }
+
+    private String publisher;
+
+    public String getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    private int year;
 
     public String getId() {
         return id;
