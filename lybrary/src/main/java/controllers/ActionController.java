@@ -1,5 +1,6 @@
 package controllers;
 
+import DateBase.DBException;
 import Models.User;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,7 +24,7 @@ public class ActionController extends controllers.Controller {
 
     @RequestMapping(value = "/settings", method = RequestMethod.POST)
     public String settings(@CookieValue(value = "user_code", required = false) Cookie cookieUserCode)
-            throws SQLException {
+            throws SQLException, DBException {
         if (isCookieWrong(cookieUserCode)) return "false";
 
         User u = getClientUserObject(getIdFromCookie(cookieUserCode.getValue()));

@@ -63,12 +63,14 @@
       <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/controllers/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="51" column="12" lean-forward="false" selection-start-line="51" selection-start-column="12" selection-end-line="53" selection-end-column="39" />
+            <state relative-caret-position="138">
+              <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
               <folding>
+                <element signature="imports" expanded="true" />
                 <element signature="method#getDate#0;class#Controller#0" expanded="false" />
                 <element signature="method#getDate#1;class#Controller#0" expanded="false" />
                 <element signature="method#getIdFromCookie#0;class#Controller#0" expanded="false" />
+                <element signature="method#createNewCookieForUser#0;class#Controller#0" expanded="false" />
                 <element signature="method#createUserCardPage#0;class#Controller#0" expanded="false" />
                 <element signature="method#isCookieWrong#0;class#Controller#0" expanded="false" />
                 <element signature="method#addNewUserToTheSystem#0;class#Controller#0" expanded="false" />
@@ -77,33 +79,12 @@
                 <element signature="method#getAllOrders#0;class#Controller#0" expanded="false" />
                 <element signature="method#getAllFinishedOrders#0;class#Controller#0" expanded="false" />
                 <element signature="method#getAllDocuments#0;class#Controller#0" expanded="false" />
+                <element signature="method#getDocumentIdByParameters#0;class#Controller#0" expanded="false" />
                 <element signature="method#getClientUserObject#0;class#Controller#0" expanded="false" />
+                <element signature="method#getClientUserObject#1;class#Controller#0" expanded="false" />
                 <element signature="method#getDocumentByOrder#0;class#Controller#0" expanded="false" />
                 <element signature="method#createListOfUsersBlock#0;class#Controller#0" expanded="false" />
                 <element signature="method#createListOfOrdersBlock#0;class#Controller#0" expanded="false" />
-                <marker date="1520431427872" expanded="true" signature="1357:1406" ph="select * fro... users" />
-                <marker date="1520431427872" expanded="true" signature="1730:1826" ph="update users... " />
-                <marker date="1520431427872" expanded="true" signature="2544:2616" ph="select * fro... orders" />
-                <marker date="1520431427872" expanded="true" signature="2652:2699" ph="select * fro... users" />
-                <marker date="1520431427872" expanded="true" signature="6413:6485" ph="select * fro... users" />
-                <marker date="1520431427872" expanded="true" signature="7041:7090" ph="select * fro... users" />
-                <marker date="1520431427872" expanded="true" signature="7284:7488" ph="insert into users... " />
-                <marker date="1520431427872" expanded="true" signature="8041:8090" ph="select * fro... users" />
-                <marker date="1520431427872" expanded="true" signature="8284:8531" ph="insert into users... " />
-                <marker date="1520431427872" expanded="true" signature="8884:8903" ph="SELECT * FRO... users" />
-                <marker date="1520431427872" expanded="true" signature="9757:9777" ph="SELECT * FRO... orders" />
-                <marker date="1520431427872" expanded="true" signature="10450:10496" ph="SELECT * FRO... orders" />
-                <marker date="1520431427872" expanded="true" signature="11173:11196" ph="SELECT * FRO... documents" />
-                <marker date="1520431427872" expanded="false" signature="12115:12224" ph="select * fro... documents" />
-                <marker date="1520431427872" expanded="true" signature="12610:12641" ph="select * fro... users" />
-                <marker date="1520431427872" expanded="true" signature="13385:13420" ph="select * fro... documents" />
-                <marker date="1520431427872" expanded="true" signature="17224:17243" ph="SELECT * FRO... users" />
-                <marker date="1520431427872" expanded="true" signature="17633:17656" ph="SELECT * FRO... documents" />
-                <marker date="1520431427872" expanded="true" signature="18133:18176" ph="select * fro... users" />
-                <marker date="1520431427872" expanded="true" signature="18892:19000" ph="select * fro... users" />
-                <marker date="1520431427872" expanded="true" signature="19632:19681" ph="select * fro... users" />
-                <marker date="1520431427872" expanded="true" signature="19875:20121" ph="insert into users... " />
-                <marker date="1520431427872" expanded="true" signature="20532:20575" ph="select * fro... users" />
               </folding>
             </state>
           </provider>
@@ -135,7 +116,55 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EntireController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ActionController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/controllers/ActionController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="587">
+              <caret line="55" column="41" lean-forward="false" selection-start-line="55" selection-start-column="41" selection-end-line="55" selection-end-column="41" />
+              <folding>
+                <element signature="method#toProfile#0;class#ActionController#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DBService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/DateBase/DBService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="528">
+              <caret line="42" column="85" lean-forward="false" selection-start-line="42" selection-start-column="85" selection-end-line="42" selection-end-column="85" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="User.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Models/User.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="10" column="41" lean-forward="false" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DBHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/DateBase/DBHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="215">
+              <caret line="10" column="60" lean-forward="false" selection-start-line="10" selection-start-column="42" selection-end-line="10" selection-end-column="60" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EntireController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/controllers/EntireController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="308">
@@ -143,8 +172,35 @@
               <folding>
                 <element signature="method#index#0;class#EntireController#0" expanded="false" />
                 <element signature="method#hello#0;class#EntireController#0" expanded="false" />
-                <marker date="1520964479418" expanded="true" signature="1720:1792" ph="select * fro... users" />
-                <marker date="1520964479418" expanded="true" signature="2436:2509" ph="select * fro... orders" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EnterController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/controllers/EnterController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="394">
+              <caret line="62" column="24" lean-forward="false" selection-start-line="62" selection-start-column="24" selection-end-line="62" selection-end-column="24" />
+              <folding>
+                <marker date="1519749720565" expanded="true" signature="1907:1956" ph="select * fro... users" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BookingController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/controllers/BookingController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1408">
+              <caret line="87" column="134" lean-forward="false" selection-start-line="87" selection-start-column="134" selection-end-line="87" selection-end-column="134" />
+              <folding>
+                <marker date="1520966417159" expanded="true" signature="1273:1308" ph="select * fro... documents" />
+                <marker date="1520966417159" expanded="true" signature="1365:1396" ph="select * fro... users" />
+                <marker date="1520966417159" expanded="true" signature="1486:1592" ph="select * fro... orders" />
+                <marker date="1520966417159" expanded="true" signature="3042:3111" ph="update documents... " />
+                <marker date="1520966417159" expanded="true" signature="3215:3497" ph="insert into orders... " />
+                <marker date="1520966417159" expanded="true" signature="7295:7395" ph="UPDATE orders... " />
               </folding>
             </state>
           </provider>
@@ -229,18 +285,20 @@
         <option value="$PROJECT_DIR$/src/main/java/controllers/RegistrationController.java" />
         <option value="$PROJECT_DIR$/src/main/java/DateBase/DBHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/Models/Document.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Models/User.java" />
-        <option value="$PROJECT_DIR$/src/main/java/controllers/ActionController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/usercard.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/test/AdminControllerTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/controllers/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/test/AdminControllerT.java" />
-        <option value="$PROJECT_DIR$/src/main/java/controllers/Controller.java" />
-        <option value="$PROJECT_DIR$/src/main/java/test/Test2.java" />
-        <option value="$PROJECT_DIR$/src/main/java/controllers/BookingController.java" />
         <option value="$PROJECT_DIR$/src/main/java/test/BookingControllerT.java" />
         <option value="$PROJECT_DIR$/src/main/java/controllers/AdminController.java" />
         <option value="$PROJECT_DIR$/src/main/java/controllers/EntireController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/dao/UsersDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/test/Test2.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controllers/Controller.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controllers/BookingController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controllers/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controllers/ActionController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/DateBase/DBService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Models/User.java" />
       </list>
     </option>
   </component>
@@ -278,7 +336,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="x" value="953" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
@@ -331,6 +389,14 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lybrary" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lybrary" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="lybrary" type="b2602c69:ProjectViewProjectNode" />
@@ -443,14 +509,18 @@
       <recent name="test" />
       <recent name="controllers" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Semyon\Documents\GitHub\Lybrary-new-version-\lybrary\src\main\resources" />
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\niz_1\Documents\GitHub\Lybrary\lybrary\src\main\webapp\resources" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="dao" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Semyon\Documents\GitHub\Lybrary-new-version-\lybrary\src\main\java\DateBase" />
+      <recent name="C:\Users\Semyon\Documents\GitHub\Lybrary-new-version-\lybrary\src\main\resources" />
       <recent name="C:\Users\niz_1\Documents\GitHub\Lybrary\lybrary\src\main\webapp\resources" />
     </key>
   </component>
@@ -724,7 +794,7 @@
       <workItem from="1520179162550" duration="4375000" />
       <workItem from="1520187516817" duration="3625000" />
       <workItem from="1520411103382" duration="20134000" />
-      <workItem from="1520963517729" duration="1286000" />
+      <workItem from="1520963517729" duration="3962000" />
     </task>
     <servers />
   </component>
@@ -761,7 +831,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="159167000" />
+    <option name="totallyTimeSpent" value="161843000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -773,11 +843,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <frame x="953" y="0" width="974" height="1047" extended-state="1" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32821724" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31926408" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -787,10 +857,10 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29661942" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293979" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.495671" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.9453552" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1945629" sideWeight="0.49615806" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27242887" sideWeight="0.49615806" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5131291" sideWeight="0.50384194" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15565032" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24972972" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -803,7 +873,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31952018" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.175" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -855,17 +924,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="das://table:/4e072f91/4a369af2-baf9-4461-9882-357e8a618eda/itpdb.active_users" />
-    <entry file="das://table:/c3929590/4a369af2-baf9-4461-9882-357e8a618eda/itpdb.documents" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/BookingControllerTest.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/EnterControllerTest.java" />
-    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.base/java/lang/Math.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="106" column="19" lean-forward="false" selection-start-line="106" selection-start-column="19" selection-end-line="106" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/test/RegistrationControllerTest.java" />
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/more.jsp">
       <provider selected="true" editor-type-id="text-editor">
@@ -955,14 +1013,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/DateBase/DBHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="12" column="42" lean-forward="false" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jrt://C:/Program Files/Java/jdk-9.0.4!/java.base/java/time/chrono/hijrah-config-islamic-umalqura.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="298">
@@ -1029,26 +1079,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Models/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" column="157" lean-forward="false" selection-start-line="3" selection-start-column="157" selection-end-line="3" selection-end-column="157" />
-          <folding>
-            <element signature="method#User#0;class#User#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/RegistrationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="39" column="28" lean-forward="true" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="28" />
-          <folding>
-            <marker date="1520183531140" expanded="true" signature="1926:1975" ph="select * fro... users" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/usercard.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="463">
@@ -1072,19 +1102,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1320">
-          <caret line="68" column="20" lean-forward="false" selection-start-line="68" selection-start-column="20" selection-end-line="68" selection-end-column="20" />
-          <folding>
-            <marker date="1520430075787" expanded="true" signature="1686:1717" ph="select * fro... users" />
-            <marker date="1520430075787" expanded="true" signature="2345:2688" ph="UPDATE users... " />
-            <marker date="1520430075787" expanded="true" signature="2742:3016" ph="UPDATE users... " />
-            <marker date="1520430075787" expanded="true" signature="3062:3296" ph="UPDATE users... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="das://table:/302de142/4a369af2-baf9-4461-9882-357e8a618eda/itpdb.documents">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -1100,40 +1117,144 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/test/BookingControllerT.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="37" column="52" lean-forward="false" selection-start-line="37" selection-start-column="52" selection-end-line="37" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0-sources.jar!/javax/servlet/http/Cookie.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="694">
+          <caret line="278" column="16" lean-forward="false" selection-start-line="278" selection-start-column="16" selection-end-line="278" selection-end-column="16" />
+          <folding>
+            <element signature="e#10713#10714#0" expanded="false" />
+            <element signature="e#10744#10745#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/test/AdminControllerT.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="13" column="20" lean-forward="false" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/dao/UsersDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="587">
+          <caret line="45" column="114" lean-forward="false" selection-start-line="45" selection-start-column="44" selection-end-line="45" selection-end-column="114" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/test/Test2.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1672">
-          <caret line="90" column="0" lean-forward="false" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
+        <state relative-caret-position="2442">
+          <caret line="111" column="6" lean-forward="false" selection-start-line="111" selection-start-column="6" selection-end-line="111" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#5184#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/DateBase/DBException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="31" column="11" lean-forward="false" selection-start-line="31" selection-start-column="11" selection-end-line="31" selection-end-column="11" />
+          <folding>
+            <marker date="1520966417130" expanded="true" signature="1725:1756" ph="select * fro... users" />
+            <marker date="1520966417130" expanded="true" signature="2384:2727" ph="UPDATE users... " />
+            <marker date="1520966417130" expanded="true" signature="2781:3055" ph="UPDATE users... " />
+            <marker date="1520966417130" expanded="true" signature="3101:3335" ph="UPDATE users... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/RegistrationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="39" column="28" lean-forward="false" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="28" />
+          <folding>
+            <marker date="1520183531140" expanded="true" signature="1926:1975" ph="select * fro... users" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/EntireController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="92" column="30" lean-forward="false" selection-start-line="92" selection-start-column="30" selection-end-line="92" selection-end-column="30" />
+          <folding>
+            <element signature="method#index#0;class#EntireController#0" expanded="false" />
+            <element signature="method#hello#0;class#EntireController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/EnterController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="394">
+          <caret line="62" column="24" lean-forward="false" selection-start-line="62" selection-start-column="24" selection-end-line="62" selection-end-column="24" />
+          <folding>
+            <marker date="1519749720565" expanded="true" signature="1907:1956" ph="select * fro... users" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#getDate#0;class#Controller#0" expanded="false" />
+            <element signature="method#getDate#1;class#Controller#0" expanded="false" />
+            <element signature="method#getIdFromCookie#0;class#Controller#0" expanded="false" />
+            <element signature="method#createNewCookieForUser#0;class#Controller#0" expanded="false" />
+            <element signature="method#createUserCardPage#0;class#Controller#0" expanded="false" />
+            <element signature="method#isCookieWrong#0;class#Controller#0" expanded="false" />
+            <element signature="method#addNewUserToTheSystem#0;class#Controller#0" expanded="false" />
+            <element signature="method#addNewUserToTheSystem#1;class#Controller#0" expanded="false" />
+            <element signature="method#getAllUsers#0;class#Controller#0" expanded="false" />
+            <element signature="method#getAllOrders#0;class#Controller#0" expanded="false" />
+            <element signature="method#getAllFinishedOrders#0;class#Controller#0" expanded="false" />
+            <element signature="method#getAllDocuments#0;class#Controller#0" expanded="false" />
+            <element signature="method#getDocumentIdByParameters#0;class#Controller#0" expanded="false" />
+            <element signature="method#getClientUserObject#0;class#Controller#0" expanded="false" />
+            <element signature="method#getClientUserObject#1;class#Controller#0" expanded="false" />
+            <element signature="method#getDocumentByOrder#0;class#Controller#0" expanded="false" />
+            <element signature="method#createListOfUsersBlock#0;class#Controller#0" expanded="false" />
+            <element signature="method#createListOfOrdersBlock#0;class#Controller#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controllers/BookingController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="36" column="94" lean-forward="false" selection-start-line="36" selection-start-column="94" selection-end-line="36" selection-end-column="94" />
+        <state relative-caret-position="1408">
+          <caret line="87" column="134" lean-forward="false" selection-start-line="87" selection-start-column="134" selection-end-line="87" selection-end-column="134" />
           <folding>
-            <element signature="method#returnDocument#0;class#BookingController#0" expanded="false" />
-            <marker date="1520431486150" expanded="true" signature="1244:1279" ph="select * fro... documents" />
-            <marker date="1520431486150" expanded="true" signature="1336:1367" ph="select * fro... users" />
-            <marker date="1520431486150" expanded="true" signature="1457:1563" ph="select * fro... orders" />
-            <marker date="1520431486150" expanded="true" signature="3013:3082" ph="update documents... " />
-            <marker date="1520431486150" expanded="true" signature="3186:3468" ph="insert into orders... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/test/BookingControllerT.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="37" column="52" lean-forward="false" selection-start-line="37" selection-start-column="52" selection-end-line="37" selection-end-column="52" />
-          <folding>
-            <marker date="1520431492325" expanded="true" signature="1380:1415" ph="select * fro... documents" />
-            <marker date="1520431492325" expanded="true" signature="1525:1556" ph="select * fro... users" />
-            <marker date="1520431492325" expanded="true" signature="1646:1682" ph="select * fro... orders" />
-            <marker date="1520431492325" expanded="true" signature="3182:3251" ph="update documents... " />
-            <marker date="1520431492325" expanded="true" signature="3355:3637" ph="insert into orders... " />
-            <marker date="1520431492325" expanded="true" signature="5567:5590" ph="SELECT * FRO... documents" />
+            <marker date="1520966417159" expanded="true" signature="1273:1308" ph="select * fro... documents" />
+            <marker date="1520966417159" expanded="true" signature="1365:1396" ph="select * fro... users" />
+            <marker date="1520966417159" expanded="true" signature="1486:1592" ph="select * fro... orders" />
+            <marker date="1520966417159" expanded="true" signature="3042:3111" ph="update documents... " />
+            <marker date="1520966417159" expanded="true" signature="3215:3497" ph="insert into orders... " />
+            <marker date="1520966417159" expanded="true" signature="7295:7395" ph="UPDATE orders... " />
           </folding>
         </state>
       </provider>
@@ -1162,116 +1283,61 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="51" column="12" lean-forward="false" selection-start-line="51" selection-start-column="12" selection-end-line="53" selection-end-column="39" />
-          <folding>
-            <element signature="method#getDate#0;class#Controller#0" expanded="false" />
-            <element signature="method#getDate#1;class#Controller#0" expanded="false" />
-            <element signature="method#getIdFromCookie#0;class#Controller#0" expanded="false" />
-            <element signature="method#createUserCardPage#0;class#Controller#0" expanded="false" />
-            <element signature="method#isCookieWrong#0;class#Controller#0" expanded="false" />
-            <element signature="method#addNewUserToTheSystem#0;class#Controller#0" expanded="false" />
-            <element signature="method#addNewUserToTheSystem#1;class#Controller#0" expanded="false" />
-            <element signature="method#getAllUsers#0;class#Controller#0" expanded="false" />
-            <element signature="method#getAllOrders#0;class#Controller#0" expanded="false" />
-            <element signature="method#getAllFinishedOrders#0;class#Controller#0" expanded="false" />
-            <element signature="method#getAllDocuments#0;class#Controller#0" expanded="false" />
-            <element signature="method#getClientUserObject#0;class#Controller#0" expanded="false" />
-            <element signature="method#getDocumentByOrder#0;class#Controller#0" expanded="false" />
-            <element signature="method#createListOfUsersBlock#0;class#Controller#0" expanded="false" />
-            <element signature="method#createListOfOrdersBlock#0;class#Controller#0" expanded="false" />
-            <marker date="1520431427872" expanded="true" signature="1357:1406" ph="select * fro... users" />
-            <marker date="1520431427872" expanded="true" signature="1730:1826" ph="update users... " />
-            <marker date="1520431427872" expanded="true" signature="2544:2616" ph="select * fro... orders" />
-            <marker date="1520431427872" expanded="true" signature="2652:2699" ph="select * fro... users" />
-            <marker date="1520431427872" expanded="true" signature="6413:6485" ph="select * fro... users" />
-            <marker date="1520431427872" expanded="true" signature="7041:7090" ph="select * fro... users" />
-            <marker date="1520431427872" expanded="true" signature="7284:7488" ph="insert into users... " />
-            <marker date="1520431427872" expanded="true" signature="8041:8090" ph="select * fro... users" />
-            <marker date="1520431427872" expanded="true" signature="8284:8531" ph="insert into users... " />
-            <marker date="1520431427872" expanded="true" signature="8884:8903" ph="SELECT * FRO... users" />
-            <marker date="1520431427872" expanded="true" signature="9757:9777" ph="SELECT * FRO... orders" />
-            <marker date="1520431427872" expanded="true" signature="10450:10496" ph="SELECT * FRO... orders" />
-            <marker date="1520431427872" expanded="true" signature="11173:11196" ph="SELECT * FRO... documents" />
-            <marker date="1520431427872" expanded="false" signature="12115:12224" ph="select * fro... documents" />
-            <marker date="1520431427872" expanded="true" signature="12610:12641" ph="select * fro... users" />
-            <marker date="1520431427872" expanded="true" signature="13385:13420" ph="select * fro... documents" />
-            <marker date="1520431427872" expanded="true" signature="17224:17243" ph="SELECT * FRO... users" />
-            <marker date="1520431427872" expanded="true" signature="17633:17656" ph="SELECT * FRO... documents" />
-            <marker date="1520431427872" expanded="true" signature="18133:18176" ph="select * fro... users" />
-            <marker date="1520431427872" expanded="true" signature="18892:19000" ph="select * fro... users" />
-            <marker date="1520431427872" expanded="true" signature="19632:19681" ph="select * fro... users" />
-            <marker date="1520431427872" expanded="true" signature="19875:20121" ph="insert into users... " />
-            <marker date="1520431427872" expanded="true" signature="20532:20575" ph="select * fro... users" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0-sources.jar!/javax/servlet/http/Cookie.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="694">
-          <caret line="278" column="16" lean-forward="false" selection-start-line="278" selection-start-column="16" selection-end-line="278" selection-end-column="16" />
-          <folding>
-            <element signature="e#10713#10714#0" expanded="true" />
-            <element signature="e#10744#10745#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controllers/ActionController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="580">
-          <caret line="54" column="30" lean-forward="false" selection-start-line="54" selection-start-column="30" selection-end-line="54" selection-end-column="30" />
+        <state relative-caret-position="587">
+          <caret line="55" column="41" lean-forward="false" selection-start-line="55" selection-start-column="41" selection-end-line="55" selection-end-column="41" />
           <folding>
             <element signature="method#toProfile#0;class#ActionController#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/test/AdminControllerT.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/DateBase/DBHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="13" column="20" lean-forward="false" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
+        <state relative-caret-position="215">
+          <caret line="10" column="60" lean-forward="false" selection-start-line="10" selection-start-column="42" selection-end-line="10" selection-end-column="60" />
           <folding>
-            <marker date="1520431427823" expanded="true" signature="1585:1694" ph="select * fro... documents" />
-            <marker date="1520431427823" expanded="true" signature="1857:2185" ph="insert into documents... " />
-            <marker date="1520431427823" expanded="true" signature="3564:3599" ph="select * fro... documents" />
-            <marker date="1520431427823" expanded="true" signature="3769:4146" ph="UPDATE documents... " />
-            <marker date="1520431427823" expanded="true" signature="5103:5134" ph="select * fro... users" />
-            <marker date="1520431427823" expanded="true" signature="5304:5533" ph="UPDATE users... " />
-            <marker date="1520431427823" expanded="true" signature="6017:6048" ph="select * fro... users" />
-            <marker date="1520431427823" expanded="true" signature="6218:6267" ph="DELETE from users... " />
-            <marker date="1520431427823" expanded="true" signature="6730:6765" ph="select * fro... documents" />
-            <marker date="1520431427823" expanded="true" signature="6935:6988" ph="DELETE from documents... " />
-            <marker date="1520431427823" expanded="true" signature="7759:7868" ph="select * fro... documents" />
-            <marker date="1520431427823" expanded="true" signature="8032:8159" ph="DELETE from documents... " />
-            <marker date="1520431427823" expanded="true" signature="8611:8643" ph="select * fro... orders" />
-            <marker date="1520431427823" expanded="true" signature="8819:8917" ph="UPDATE orders... " />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/EnterController.java">
+    <entry file="jar://C:/Program Files/Java/jdk-9.0.4/lib/src.zip!/java.base/java/util/Properties.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="650">
-          <caret line="62" column="24" lean-forward="true" selection-start-line="62" selection-start-column="24" selection-end-line="62" selection-end-column="24" />
+        <state relative-caret-position="826">
+          <caret line="185" column="51" lean-forward="false" selection-start-line="185" selection-start-column="51" selection-end-line="185" selection-end-column="51" />
           <folding>
-            <marker date="1519749720565" expanded="true" signature="1907:1956" ph="select * fro... users" />
+            <element signature="e#6569#6570#0" expanded="false" />
+            <element signature="e#6607#6608#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/EntireController.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/4.3.11.Final/hibernate-core-4.3.11.Final.jar!/org/hibernate/cfg/Configuration.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="92" column="30" lean-forward="false" selection-start-line="92" selection-start-column="30" selection-end-line="92" selection-end-column="30" />
+        <state relative-caret-position="304">
+          <caret line="1554" column="32" lean-forward="true" selection-start-line="1554" selection-start-column="32" selection-end-line="1554" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/DateBase/DBService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="42" column="85" lean-forward="false" selection-start-line="42" selection-start-column="85" selection-end-line="42" selection-end-column="85" />
           <folding>
-            <element signature="method#index#0;class#EntireController#0" expanded="false" />
-            <element signature="method#hello#0;class#EntireController#0" expanded="false" />
-            <marker date="1520964479418" expanded="true" signature="1720:1792" ph="select * fro... users" />
-            <marker date="1520964479418" expanded="true" signature="2436:2509" ph="select * fro... orders" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Models/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="10" column="41" lean-forward="false" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

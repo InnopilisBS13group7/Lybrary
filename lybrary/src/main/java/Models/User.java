@@ -1,37 +1,60 @@
 package Models;
 
-public class User {
-    public User(String id, String email, String password, String name, String surname, String cookieId, String status, int fine, String address, String phone) {
-        this.id = id;
+import javax.persistence.*;
+import java.io.Serializable;
+
+@Entity
+@Table(name = "users")
+
+
+
+public class User implements Serializable {
+    public User(String email, String password, String name, String surname, String cookieId, String status, int fine, String address, String phone) {
+        this.email = email;
+        this.password = password;
         this.name = name;
         this.surname = surname;
-        this.email = email;
-        this.status = status;
-        this.password = password;
         this.cookieId = cookieId;
+        this.status = status;
         this.fine = fine;
-        this.phone = phone;
         this.address = address;
+        this.phone = phone;
     }
 
-    public String getId() {
+    public User(){}
+
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    private String id;
-    private String name;
-    private String surname;
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+
+    @Column(name = "email")
     private String email;
-    private String status;
+    @Column(name = "password")
     private String password;
+    @Column(name = "name")
+    private String name;
+    @Column(name = "surname")
+    private String surname;
+    @Column(name = "cookieId")
     private String cookieId;
+    @Column(name = "status")
+    private String status;
+    @Column(name = "fine")
     private int fine;
-    private String phone;
+    @Column(name = "address")
     private String address;
+    @Column(name = "phone")
+    private String phone;
 
 
     public int getFine() {

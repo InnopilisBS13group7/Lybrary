@@ -1,6 +1,7 @@
 package controllers;
 
 
+import DateBase.DBException;
 import DateBase.DBHandler;
 import Models.Document;
 import Models.User;
@@ -84,7 +85,7 @@ public class BookingController extends Controller {
     }
 
     @RequestMapping(value = "/listItems", method = POST)
-    public String listItems(@CookieValue(value = "user_code", required = false) Cookie cookieUserCode) throws SQLException {
+    public String listItems(@CookieValue(value = "user_code", required = false) Cookie cookieUserCode) throws DBException,SQLException {
         if (isCookieWrong(cookieUserCode)) return "false";
         User u = getClientUserObject(getIdFromCookie(cookieUserCode.getValue()));
         DBHandler db;

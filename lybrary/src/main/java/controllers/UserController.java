@@ -1,5 +1,6 @@
 package controllers;
 
+import DateBase.DBException;
 import DateBase.DBHandler;
 import Models.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -22,13 +23,13 @@ public class UserController extends Controller {
                                     @RequestParam(value = "newPassword", required = false, defaultValue = "") String newPassword,
                                     @RequestParam(value = "currentPassword", required = false, defaultValue = "") String currentPassword,
                                          @CookieValue(value = "user_code", required = false) Cookie cookieUserCode)
-            throws SQLException {
+            throws SQLException, DBException {
         DBHandler db;
         db = new DBHandler();
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         Statement statement = db.getConnection().createStatement();
         User u = getClientUserObject(getIdFromCookie(cookieUserCode.getValue()));
-        String id = u.getId();
+        int id = u.getId();
         String getQuery = "select * from users where id = " + id;
         ResultSet resultSet = statement.executeQuery(getQuery);
         if (!resultSet.next()) return "Such user does not exist ";//does not exist such user

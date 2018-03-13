@@ -1,6 +1,8 @@
 package controllers;
 
+import DateBase.DBException;
 import DateBase.DBHandler;
+import DateBase.DBService;
 import Models.Document;
 import Models.Order;
 import Models.User;
@@ -17,6 +19,8 @@ import java.util.*;
 
 
 public class Controller {
+
+    private static DBService db = new DBService();
 
     public static String getDate() {
         Date date = new Date();
@@ -190,26 +194,10 @@ public class Controller {
         return true;
     }
 
-    protected static List<User> getAllUsers() throws SQLException {
-        List<User> list = new LinkedList<>();
-        DBHandler db;
-        db = new DBHandler();
-        Statement statement = db.getConnection().createStatement();
-        String getQuery = "SELECT * FROM users";
-        ResultSet resultSet = statement.executeQuery(getQuery);
-        while (resultSet.next()) {
-            list.add(new User(resultSet.getString(1),
-                    resultSet.getString(2),
-                    resultSet.getString(3),
-                    resultSet.getString(4),
-                    resultSet.getString(5),
-                    resultSet.getString(6),
-                    resultSet.getString(7),
-                    resultSet.getInt(8),
-                    resultSet.getString(9),
-                    resultSet.getString(10)));
-        }
-        return list;
+    protected static List<User> getAllUsers() throws DBException {
+
+
+        return db.getAllUsers();
     }
 
     protected static List<Order> getAllOrders() throws SQLException {
@@ -281,24 +269,11 @@ public class Controller {
         return Integer.toString(resultSet.getInt(1));
     }
 
-    protected static User getClientUserObject(String id) throws SQLException {
-        DBHandler db = new DBHandler();
-        Statement statement = db.getConnection().createStatement();
-        String query = "select * from users where id = " + id;
-        ResultSet r = statement.executeQuery(query);
-        if (!r.next()) System.out.println("PPPPPPPPPPPPPPIZDEC");//return null;
-        User user = new User(r.getString(1),
-                r.getString(2),
-                r.getString(3),
-                r.getString(4),
-                r.getString(5),
-                r.getString(6),
-                r.getString(7),
-                r.getInt(8),
-                r.getString(9),
-                r.getString(10));
-        statement.close();
-        return user;
+    protected static User getClientUserObject(String id) throws DBException {
+        return db.getUser(Integer.parseInt(id));
+    }
+    protected static User getClientUserObject(int id) throws DBException {
+        return db.getUser(id);
     }
 
     protected static Document getDocumentByOrder(Order order) throws SQLException {
@@ -344,13 +319,13 @@ public class Controller {
         return div + "</div>";
     }
 
-    protected static String createListOfOrdersBlock(List<Order> orders) throws SQLException {
+    protected static String createListOfOrdersBlock(List<Order> orders) throws DBException,SQLException {
         String div = "<div class=settings_type_box id=settings_orders>";
         Document d;
         User u;
         for (Order or : orders) {
             d = getDocumentByOrder(or);
-            u = getClientUserObject(Integer.toString(or.getUserId()));
+            u = getClientUserObject(or.getUserId());
             div += "<div class=settings_list_orders>" +
                     "<img src=/resources/img/books/1.jpg width=62px height=62px class=settings_orders_list_avatar />" +
                     "<div class=settings_orders_list_specs_box>" +
@@ -362,100 +337,5 @@ public class Controller {
                     "</div>";
         }
         return div + "</div>";
-    }
-
-
-
-    //----------for tests
-    public static int numberOfUsers() throws SQLException {
-        DBHandler db;
-        db = new DBHandler();
-        Statement statement = db.getConnection().createStatement();
-        String getQuery = "SELECT * FROM users";
-        ResultSet resultSet = statement.executeQuery(getQuery);
-        int num = 0;
-        while (resultSet.next()) {
-            num++;
-        }
-        return num;
-    }
-
-    public static int numberOfDocuments() throws SQLException {
-        DBHandler db;
-        db = new DBHandler();
-        Statement statement = db.getConnection().createStatement();
-        String getQuery = "SELECT * FROM documents";
-        ResultSet resultSet = statement.executeQuery(getQuery);
-        int num = 0;
-        while (resultSet.next()) {
-            num += resultSet.getInt(5);
-        }
-        return num;
-    }
-
-    public static List<String> getUserInfo(String id) throws SQLException {
-        List<String> list = new LinkedList<String>();
-        DBHandler db;
-        db = new DBHandler();
-        Statement statement = db.getConnection().createStatement();
-        String getQuery = "select * from users where id = '" + id + "'";
-        ResultSet resultSet = statement.executeQuery(getQuery);
-        while (resultSet.next()) {
-            list.add(resultSet.getString(1));
-            list.add(resultSet.getString(4));
-            list.add(resultSet.getString(5));
-            list.add(resultSet.getString(2));
-            list.add(resultSet.getString(7));
-            list.add(resultSet.getString(8));
-        }
-        if(list.isEmpty()) return null;
-        return list;
-    }
-
-    public static String getUserIdByParameters(String name, String surname, String status) throws SQLException {
-        DBHandler db;
-        db = new DBHandler();
-        Statement statement = db.getConnection().createStatement();
-        String getQuery = "select * from users where name = '" + name + "' and surname= '" + surname + "' and status = '" + status + "'";
-        ResultSet resultSet = statement.executeQuery(getQuery);
-        if (!resultSet.next()) return "false";
-        return Integer.toString(resultSet.getInt(1));
-    }
-
-    public static boolean addNewUserToTheSystemWithStatus(String name, String surname, String email, String password, String status) throws SQLException {
-        DBHandler db;
-        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-        String page = "[uuue";
-        String booki = "";
-        String userId = "";
-        db = new DBHandler();
-        Statement statement = db.getConnection().createStatement();
-        String getQuery = "select * from users where email = '" + email + "'";
-        ResultSet resultSet = statement.executeQuery(getQuery);
-        if (resultSet.next()) return false;
-        String encodedPassword = encoder.encode(password);
-        String query = "insert into users (email,password,name,surname,status) values('"
-                + email + "\', \'"
-                + encodedPassword + "\', \'"
-                + name + "\', \'"
-                + surname + "\',\'"
-                + status + "\')";
-        statement.execute(query);
-        resultSet = statement.executeQuery(getQuery);
-        resultSet.next();
-        userId = resultSet.getString("id");
-
-        return true;
-    }
-
-    public static Cookie getCookieFromId(String id) throws SQLException {
-        DBHandler db;
-        db = new DBHandler();
-        Statement statement = db.getConnection().createStatement();
-        String getQuery = "select * from users where id = '" + id + "'";
-        ResultSet resultSet = statement.executeQuery(getQuery);
-        if(!resultSet.next()) return null;
-        Cookie coo = new Cookie("cooka", resultSet.getString(6));
-        return coo;
     }
 }

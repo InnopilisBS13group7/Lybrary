@@ -1,4 +1,4 @@
-package test;
+/*package test;
 
 import Models.User;
 import controllers.BookingController;
@@ -38,10 +38,10 @@ public class Test2 {
 
         Controller.addNewUserToTheSystemWithStatus("Elvira", "Pindosskaya","elvira@innopolis.ru", "pass","student");
 
-        /*почистить бд или изменить экспектед
+        *//*почистить бд или изменить экспектед
         assertEquals(15,controllers.Controller.numberOfUsers());
         assertEquals(15,controllers.Controller.numberOfDocuments());
-        */
+        *//*
     }
 
     @Test
@@ -52,10 +52,10 @@ public class Test2 {
         ac.modifyDocument(Controller.getDocumentIdByParameters("Introduction to Algorithms", "Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest and Clifford Stein","book"),"Introduction to Algorithms", "Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest and Clifford Stein","book","Publisher: MIT Press.Year: 2009.Edition: Third edition","teg","3","status");
         ac.modifyDocument(Controller.getDocumentIdByParameters("The Mythical Man-month","Brooks,Jr., Frederick P","book"),"The Mythical Man-month","Brooks,Jr., Frederick P","book","Publisher: Addison-Wesley Longman Publishing Co., Inc.Year: 1995.Edition: Second edition","teg","0","reference");
 
-         /* на 1 меньшеб на 2
+         *//* на 1 меньшеб на 2
         assertEquals(15,controllers.Controller.numberOfUsers());
         assertEquals(15,controllers.Controller.numberOfDocuments());
-        */
+        *//*
     }
 
     @Test
@@ -88,7 +88,7 @@ public class Test2 {
         assertEquals("false",bc.takeItem(Controller.getDocumentIdByParameters("Introduction to Algorithms", "Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest and Clifford Stein","book"),Controller.getCookieFromId(Controller.getUserIdByParameters("Nadia", "Teixeira","student"))));
 
     }
-
+    */
     /*@Test
     public void tc6() throws SQLException {
         tc2();
@@ -102,10 +102,11 @@ public class Test2 {
     @Test
     public void tc8() throws SQLException {
         tc1();
-    }*/
+    }
 
 
     public void cleanAll() {
 
     }
 }
+    */
