@@ -15,6 +15,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -30,7 +31,6 @@ public class EntireController extends controllers.Controller{
                         HttpServletRequest request,
                         @CookieValue(value = "user_code", required = false) Cookie cookieUserCode,
                         Model model) throws SQLException {
-        System.out.println(getClientIpAddress(request));
         DBHandler db;
         db = new DBHandler();
         Statement statement = db.getConnection().createStatement();
@@ -91,11 +91,11 @@ public class EntireController extends controllers.Controller{
     }
 
     @RequestMapping(value = "/exit", method = RequestMethod.POST)
-    public String exit(@CookieValue(value = "user_code", required = false) Cookie cookieUserCode,
-                       HttpServletResponse response){
+    public String exit(HttpServletResponse response,
+                       @CookieValue(value = "user_code", required = false) Cookie cookieUserCode){
 
-        cookieUserCode.setValue("0");
         cookieUserCode.setMaxAge(0);
+        response.addCookie(cookieUserCode);
 
         return "index";
     }
