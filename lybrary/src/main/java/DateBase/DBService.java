@@ -44,7 +44,7 @@ public class DBService {
         configuration.setProperty("hibernate.connection.url", "jdbc:mysql://localhost:3306/itpdb");
         configuration.setProperty("hibernate.connection.serverTimezone", "UTC");
         configuration.setProperty("hibernate.connection.username", "root");
-        configuration.setProperty("hibernate.connection.password", "root");
+        configuration.setProperty("hibernate.connection.password", "megakek228");
         configuration.setProperty("hibernate.show_sql", hibernate_show_sql);
         configuration.setProperty("hibernate.hbm2ddl.auto", hibernate_hbm2ddl_auto);
         return configuration;

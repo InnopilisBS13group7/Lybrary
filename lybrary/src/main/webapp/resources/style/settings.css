@@ -194,3 +194,19 @@ body{
 	margin-top:8px;
 	cursor:pointer;
 }
+#settings_alert{
+	position:absolute;
+	font-family:'RobotoRegular';
+	font-size:18px;
+	text-align:center;
+	padding-top:8px;
+	padding-bottom:8px;
+	padding-left:0px;
+	padding-right:0px;
+	color:white;
+	background-color:#ff000d;
+	margin-left:264px;
+	margin-top:468px;
+	width:0px;
+	overflow:hidden;
+}

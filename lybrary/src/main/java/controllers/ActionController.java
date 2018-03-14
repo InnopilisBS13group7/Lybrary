@@ -55,6 +55,8 @@ public class ActionController extends controllers.Controller {
 
                 createListOfOrdersBlock(getAllOrders()) +
 
+                "<div id=settings_alert>Changes are successfully saved</div>" +
+
                 "</div>";
 
         return div;
