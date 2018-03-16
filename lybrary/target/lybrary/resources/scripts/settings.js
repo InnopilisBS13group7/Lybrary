@@ -40,7 +40,7 @@ $(document).ready(function(){
 	});
 	$("#settings_profile_save").click(function(){
 		$.post("/profileSettings", {name:$("#settings_name").val(), surname:$("#settings_surname").val(), currentPassword:$("#settings_current_password").val(), newPassword:$("#settings_new_password").val(), address:$("#settings_adress").val(), phone:$("#settings_phone").val()}, function(result){
-			alert(result)
+			$("#settings_alert").animate({"width":"256px", "padding-left":"8px", "padding-right":"8px"}, 150).delay(1000).animate({"width":"0px", "padding-left":"0px", "padding-right":"0px"}, 150);
 		});
 	});
 	$(".settings_users_list_modify").click(function(){

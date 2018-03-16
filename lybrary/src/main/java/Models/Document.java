@@ -1,42 +1,38 @@
 package Models;
 
-public class Document {
-    private String id;
+import javax.persistence.*;
+import java.io.Serializable;
+
+@Entity
+@Table(name = "documents")
+public class Document implements Serializable {
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    @Column(name = "title")
     private String title;
+    @Column(name = "author")
     private String author;
+    @Column(name = "status")
     private String status;
+    @Column(name = "amount")
     private int amount;
+    @Column(name = "description")
     private String description;
+    @Column(name = "teg")
     private String teg;
-
-    public Document(String id, String title, String author, String status, int amount, String description, String teg, String type, String edition, String publisher, int year) {
-        this.id = id;
-        this.title = title;
-        this.author = author;
-        this.status = status;
-        this.amount = amount;
-        this.description = description;
-        this.teg = teg;
-        this.type = type;
-        this.edition = edition;
-        this.publisher = publisher;
-        this.year = year;
-    }
-
+    @Column(name = "type")
     private String type;
-
-    public String getEdition() {
-        return edition;
-    }
-
-    public void setEdition(String edition) {
-        this.edition = edition;
-    }
-
+    @Column(name = "year")
+    private int year;
+    @Column(name = "publisher")
+    private String publisher;
+    @Column(name = "edition")
     private String edition;
 
-    public Document(String id, String title, String author, String status, int amount, String description, String teg, String type, String publisher, int year) {
-        this.id = id;
+    public Document(){}
+    public Document(String title, String author, String status, int amount, String description, String teg, String type, int year, String publisher, String edition) {
         this.title = title;
         this.author = author;
         this.status = status;
@@ -44,35 +40,16 @@ public class Document {
         this.description = description;
         this.teg = teg;
         this.type = type;
-        this.publisher = publisher;
         this.year = year;
-    }
-
-    private String publisher;
-
-    public String getPublisher() {
-        return publisher;
-    }
-
-    public void setPublisher(String publisher) {
         this.publisher = publisher;
+        this.edition = edition;
     }
 
-    public int getYear() {
-        return year;
-    }
-
-    public void setYear(int year) {
-        this.year = year;
-    }
-
-    private int year;
-
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -132,15 +109,28 @@ public class Document {
         this.type = type;
     }
 
-    public Document(String id, String title, String author, String status, int amount, String description, String teg, String type) {
-        this.id = id;
-        this.title = title;
-        this.author = author;
-        this.status = status;
-        this.amount = amount;
-        this.description = description;
-        this.teg = teg;
-        this.type = type;
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public String getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
+    }
+
+    public String getEdition() {
+        return edition;
+    }
+
+    public void setEdition(String edition) {
+        this.edition = edition;
     }
 
     @Override
@@ -154,6 +144,9 @@ public class Document {
                 ", description='" + description + '\'' +
                 ", teg='" + teg + '\'' +
                 ", type='" + type + '\'' +
+                ", year=" + year +
+                ", publisher='" + publisher + '\'' +
+                ", edition='" + edition + '\'' +
                 '}';
     }
 }

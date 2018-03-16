@@ -10,7 +10,7 @@ public class DBHandler {
     private static String HOST = "jdbc:mysql://localhost:3306/itpdb?useUnicode=true&useSSL=true&useJDBCCompliantTimezoneShift=true" +
             "&useLegacyDatetimeCode=false&serverTimezone=UTC";
     private static String USERNAME = "root";
-    private static String PASSWORD = "megakek228";
+    private static String PASSWORD = "root";
 
     private Connection connection;
 

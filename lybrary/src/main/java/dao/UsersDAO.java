@@ -32,7 +32,7 @@ public class UsersDAO {
         return ((List<User>) criteria.add(Restrictions.and(eq(fieldName1, value1),eq(fieldName2, value2))).list());
     }
 
-    public List<User> getAllUsers() throws HibernateException {
+    public List<User> getAll() throws HibernateException {
         Criteria criteria = session.createCriteria(User.class);
         return ((List<User>) criteria.list());
     }
@@ -42,11 +42,11 @@ public class UsersDAO {
         return ((List<User>) criteria.add(Restrictions.sqlRestriction("email = 'Simon'")).list());
     }
 
-    public int insertNewUser(String email, String password, String name, String surname, String cookieId, String status, int fine, String address, String phone) throws HibernateException {
+    public int insertNew(String email, String password, String name, String surname, String cookieId, String status, int fine, String address, String phone) throws HibernateException {
         return (int) session.save(new User (email, password, name, surname, cookieId, status, fine, address, phone));
     }
 
-    public void updateUser(User user) throws HibernateException {
+    public void update(User user) throws HibernateException {
         session.update(user);
     }
 }

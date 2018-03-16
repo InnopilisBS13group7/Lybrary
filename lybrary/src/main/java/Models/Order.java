@@ -1,14 +1,30 @@
 package Models;
 
-public class Order {
+import javax.persistence.*;
+import java.io.Serializable;
+
+@Entity
+@Table(name = "orders")
+public class Order implements Serializable {
+
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(name = "userId")
     private int userId;
+    @Column(name = "itemId")
     private int itemId;
-    private long startTime, finishTime;
+    @Column(name = "startTime")
+    private long startTime;
+    @Column(name = "finishTime")
+    private long finishTime;
+    @Column(name = "status")
     private String status;
 
-    public Order(int id, int userId, int itemId, long startTime, long finishTime, String status) {
-        this.id = id;
+    public Order(){}
+
+    public Order(int userId, int itemId, long startTime, long finishTime, String status) {
         this.userId = userId;
         this.itemId = itemId;
         this.startTime = startTime;

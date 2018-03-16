@@ -195,68 +195,21 @@ public class Controller {
     }
 
     protected static List<User> getAllUsers() throws DBException {
-
-
         return db.getAllUsers();
     }
 
-    protected static List<Order> getAllOrders() throws SQLException {
-        List<Order> list = new LinkedList<>();
-        DBHandler db;
-        db = new DBHandler();
-        Statement statement = db.getConnection().createStatement();
-        String getQuery = "SELECT * FROM orders";
-        ResultSet resultSet = statement.executeQuery(getQuery);
-        while (resultSet.next()) {
-            list.add(new Order(resultSet.getInt(1),
-                    resultSet.getInt(2),
-                    resultSet.getInt(3),
-                    resultSet.getLong(4),
-                    resultSet.getLong(5),
-                    resultSet.getString(6)));
-        }
-        return list;
+    protected static List<Order> getAllOrders() throws DBException {
+        return db.getAllOrders();
     }
 
-    protected static Iterable getAllFinishedOrders() throws SQLException {
-        List<Order> list = new LinkedList<>();
-        DBHandler db;
-        db = new DBHandler();
-        Statement statement = db.getConnection().createStatement();
-        String getQuery = "SELECT * FROM orders WHERE status = 'finished'";
-        ResultSet resultSet = statement.executeQuery(getQuery);
-        while (resultSet.next()) {
-            list.add(new Order(resultSet.getInt(1),
-                    resultSet.getInt(2),
-                    resultSet.getInt(3),
-                    resultSet.getLong(4),
-                    resultSet.getLong(5),
-                    resultSet.getString(6)));
-        }
-        return list;
+    protected static List<Order> getAllFinishedOrders() throws DBException {
+
+        return db.getSpecialOrders("status = 'finished'");
     }
 
-    protected static List<Document> getAllDocuments() throws SQLException {
-        List<Document> list = new LinkedList<>();
-        DBHandler db;
-        db = new DBHandler();
-        Statement statement = db.getConnection().createStatement();
-        String getQuery = "SELECT * FROM documents";
-        ResultSet resultSet = statement.executeQuery(getQuery);
-        while (resultSet.next()) {
-            list.add(new Document(resultSet.getString(1),
-                    resultSet.getString(2),
-                    resultSet.getString(3),
-                    resultSet.getString(4),
-                    resultSet.getInt(5),
-                    resultSet.getString(6),
-                    resultSet.getString(7),
-                    resultSet.getString(8),
-                    resultSet.getString("edition"),
-                    resultSet.getString("publisher"),
-                    resultSet.getInt("year")));
-        }
-        return list;
+    protected static List<Document> getAllDocuments() throws DBException {
+
+        return db.getAllDocumetns();
     }
 
     public static String getDocumentIdByParameters(String title, String author, String type) throws SQLException {
@@ -274,23 +227,6 @@ public class Controller {
     }
     protected static User getClientUserObject(int id) throws DBException {
         return db.getUser(id);
-    }
-
-    protected static Document getDocumentByOrder(Order order) throws SQLException {
-        DBHandler db = new DBHandler();
-        Statement statement = db.getConnection().createStatement();
-        String query = "select * from documents where id = " + order.getItemId();
-        ResultSet r = statement.executeQuery(query);
-        if (!r.next()) return null;
-        Document document = new Document(r.getString(1),
-                r.getString(2),
-                r.getString(3),
-                r.getString(4),
-                r.getInt(5),
-                r.getString(6),
-                r.getString(7),
-                r.getString(8));
-        return document;
     }
 
     protected static String createListOfUsersBlock(List<User> users) {
@@ -324,7 +260,7 @@ public class Controller {
         Document d;
         User u;
         for (Order or : orders) {
-            d = getDocumentByOrder(or);
+            d = db.getDocument(or.getItemId());
             u = getClientUserObject(or.getUserId());
             div += "<div class=settings_list_orders>" +
                     "<img src=/resources/img/books/1.jpg width=62px height=62px class=settings_orders_list_avatar />" +

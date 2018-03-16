@@ -5,9 +5,6 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "users")
-
-
-
 public class User implements Serializable {
     public User(String email, String password, String name, String surname, String cookieId, String status, int fine, String address, String phone) {
         this.email = email;
@@ -129,5 +126,20 @@ public class User implements Serializable {
         this.address = address;
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", cookieId='" + cookieId + '\'' +
+                ", status='" + status + '\'' +
+                ", fine=" + fine +
+                ", address='" + address + '\'' +
+                ", phone='" + phone + '\'' +
+                '}';
+    }
 }
 

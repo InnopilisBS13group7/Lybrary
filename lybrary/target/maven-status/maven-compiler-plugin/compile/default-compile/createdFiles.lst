@@ -1,10 +1,12 @@
 controllers\BookingController.class
+dao\DocumentsDAO.class
 DateBase\DBService.class
 controllers\RegistrationController.class
 DateBase\DBHandler.class
 controllers\AdminController.class
 controllers\ActionController.class
 controllers\UserController.class
+dao\OrdersDAO.class
 controllers\EnterController.class
 controllers\EntireController.class
 Models\Document.class
