@@ -1,5 +1,6 @@
 package dao;
 
+import Models.Document;
 import Models.Order;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
@@ -19,7 +20,7 @@ public class OrdersDAO {
     }
 
     public Order get(int id) throws HibernateException {
-        return (Order) session.get(Order.class, id);
+        return (Order) session.load(Order.class, id);
     }
 
     public int insertNew(int userId, int itemId, long startTime, long finishTime, String status) throws HibernateException {
@@ -32,7 +33,9 @@ public class OrdersDAO {
 
     public List<Order> getAll() throws HibernateException {
         Criteria criteria = session.createCriteria(Order.class);
-        return ((List<Order>) criteria.list());
+        List<Order> list = (List<Order>) criteria.list();
+        System.out.println(list);
+        return list;
     }
 
     public List<Order> getSpecialSet(String sqlCondition) throws HibernateException {

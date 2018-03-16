@@ -86,9 +86,7 @@ public class Order implements Serializable {
                 "id=" + id +
                 ", userId=" + userId +
                 ", itemId=" + itemId +
-                ", startTime=" + startTime +
-                ", finishTime=" + finishTime +
                 ", status='" + status + '\'' +
-                '}';
+                "}\n";
     }
 }

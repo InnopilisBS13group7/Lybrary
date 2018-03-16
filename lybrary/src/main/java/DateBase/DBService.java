@@ -19,6 +19,7 @@ import java.util.List;
 
 public class DBService {
     private static final String hibernate_show_sql = "false";
+    private static final String hibernate_format_sql = "false";
     private static final String hibernate_hbm2ddl_auto = "update";
 
     private final SessionFactory sessionFactory;
@@ -43,6 +44,7 @@ public class DBService {
         configuration.setProperty("hibernate.connection.password", "root");
         configuration.setProperty("hibernate.show_sql", hibernate_show_sql);
         configuration.setProperty("hibernate.hbm2ddl.auto", hibernate_hbm2ddl_auto);
+        configuration.setProperty("hibernate.format_sql", hibernate_format_sql);
         return configuration;
     }
 
@@ -58,6 +60,7 @@ public class DBService {
             throw new DBException(e);
         }
     }
+
     public Order getOrder(int id) throws DBException {
         try {
             Session session = sessionFactory.openSession();
@@ -69,6 +72,7 @@ public class DBService {
             throw new DBException(e);
         }
     }
+
     public Document getDocument(int id) throws DBException {
         try {
             Session session = sessionFactory.openSession();
@@ -81,64 +85,69 @@ public class DBService {
         }
     }
 
-    public List<User> getAllUsers() throws DBException{
+    public List<User> getAllUsers() throws DBException {
         try {
             Session session = sessionFactory.openSession();
             UsersDAO dao = new UsersDAO(session);
-            List<User> dataSet= dao.getAll();
+            List<User> dataSet = dao.getAll();
             session.close();
             return dataSet;
-        } catch (HibernateException e){
+        } catch (HibernateException e) {
             throw new DBException(e);
         }
     }
-    public List<Order> getAllOrders() throws DBException{
+
+    public List<Order> getAllOrders() throws DBException {
         try {
             Session session = sessionFactory.openSession();
+            session.beginTransaction();
             OrdersDAO dao = new OrdersDAO(session);
-            List<Order> dataSet= dao.getAll();
+            List<Order> dataSet = dao.getAll();
+            session.getTransaction().commit();
             session.close();
             return dataSet;
-        } catch (HibernateException e){
+        } catch (HibernateException e) {
             throw new DBException(e);
         }
     }
-    public List<Document> getAllDocumetns() throws DBException{
+
+    public List<Document> getAllDocuments() throws DBException {
         try {
             Session session = sessionFactory.openSession();
+            session.beginTransaction();
             DocumentsDAO dao = new DocumentsDAO(session);
-            List<Document> dataSet= dao.getAll();
+            List<Document> dataSet = dao.getAll();
+            session.getTransaction().commit();
             session.close();
             return dataSet;
-        } catch (HibernateException e){
+        } catch (HibernateException e) {
             throw new DBException(e);
         }
     }
 
-    public List<User> getSpecialUsers() throws DBException{
+    public List<User> getSpecialUsers() throws DBException {
         try {
             Session session = sessionFactory.openSession();
             UsersDAO dao = new UsersDAO(session);
-            List<User> dataSet= dao.getSpecialUsers();
+            List<User> dataSet = dao.getSpecialUsers();
             session.close();
             return dataSet;
-        } catch (HibernateException e){
+        } catch (HibernateException e) {
             throw new DBException(e);
         }
     }
-    public List<Order> getSpecialOrders(String sqlCondition) throws DBException{
+
+    public List<Order> getSpecialOrders(String sqlCondition) throws DBException {
         try {
             Session session = sessionFactory.openSession();
             OrdersDAO dao = new OrdersDAO(session);
-            List<Order> dataSet= dao.getSpecialSet(sqlCondition);
+            List<Order> dataSet = dao.getSpecialSet(sqlCondition);
             session.close();
             return dataSet;
-        } catch (HibernateException e){
+        } catch (HibernateException e) {
             throw new DBException(e);
         }
     }
-
-
 
 
     //IT DOES NOT WORK, BECAUSE IT  RETURNS MORE THEN ONE OBJECT
@@ -181,20 +190,17 @@ public class DBService {
         }
     }
 
-    public List<User> getListOfUsers(String fieldName1,String value1,String fieldName2,String value2) throws DBException{
+    public List<User> getListOfUsers(String fieldName1, String value1, String fieldName2, String value2) throws DBException {
         try {
             Session session = sessionFactory.openSession();
             UsersDAO dao = new UsersDAO(session);
-            List<User> dataSet= dao.getListOfUsers(fieldName1, value1,fieldName2, value2);
+            List<User> dataSet = dao.getListOfUsers(fieldName1, value1, fieldName2, value2);
             session.close();
             return dataSet;
-        } catch (HibernateException e){
+        } catch (HibernateException e) {
             throw new DBException(e);
         }
     }
-
-
-
 
 
     public void printConnectInfo() {

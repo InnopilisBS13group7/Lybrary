@@ -1,6 +1,7 @@
 package controllers;
 
 import DateBase.DBException;
+import Models.Order;
 import Models.User;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.Cookie;
 import java.sql.SQLException;
+import java.util.List;
 
 @RestController
 public class ActionController extends controllers.Controller {
@@ -28,7 +30,6 @@ public class ActionController extends controllers.Controller {
         if (isCookieWrong(cookieUserCode)) return "false";
 
         User u = getClientUserObject(getIdFromCookie(cookieUserCode.getValue()));
-
         String div = "<div id=settings_block>" +
                 (u.getStatus().equals("admin") ? "<div id=settings_type_menu>" +
                         "<div class=settings_type id=settings_type_profile>Profile</div>" +
@@ -58,7 +59,6 @@ public class ActionController extends controllers.Controller {
                 "<div id=settings_alert>Changes are successfully saved</div>" +
 
                 "</div>";
-
         return div;
     }
 }

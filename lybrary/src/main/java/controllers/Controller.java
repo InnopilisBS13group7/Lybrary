@@ -199,6 +199,7 @@ public class Controller {
     }
 
     protected static List<Order> getAllOrders() throws DBException {
+
         return db.getAllOrders();
     }
 
@@ -209,7 +210,7 @@ public class Controller {
 
     protected static List<Document> getAllDocuments() throws DBException {
 
-        return db.getAllDocumetns();
+        return db.getAllDocuments();
     }
 
     public static String getDocumentIdByParameters(String title, String author, String type) throws SQLException {

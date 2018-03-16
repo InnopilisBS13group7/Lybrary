@@ -6,6 +6,7 @@ import java.io.Serializable;
 @Entity
 @Table(name = "documents")
 public class Document implements Serializable {
+
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,6 +33,7 @@ public class Document implements Serializable {
     private String edition;
 
     public Document(){}
+
     public Document(String title, String author, String status, int amount, String description, String teg, String type, int year, String publisher, String edition) {
         this.title = title;
         this.author = author;
@@ -141,12 +143,6 @@ public class Document implements Serializable {
                 ", author='" + author + '\'' +
                 ", status='" + status + '\'' +
                 ", amount=" + amount +
-                ", description='" + description + '\'' +
-                ", teg='" + teg + '\'' +
-                ", type='" + type + '\'' +
-                ", year=" + year +
-                ", publisher='" + publisher + '\'' +
-                ", edition='" + edition + '\'' +
-                '}';
+                "}\n";
     }
 }

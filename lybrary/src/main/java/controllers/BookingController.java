@@ -108,7 +108,7 @@ public class BookingController extends Controller {
                 "</div>" +
                 "</div>":"");
 
-        List<Document> list = getAllDocuments();
+
         for (Document d: getAllDocuments()){
             divList = divList + "<div class=books_box><img src=/resources/img/books/"+(d.getType().equals("book")?"1.jpg":"2.jpg")+" class=cover width=79px height=121px />" +
                     "<p class=books_text>" +
@@ -145,7 +145,7 @@ public class BookingController extends Controller {
         String query = "UPDATE orders SET " +
                 "status ='" + "finished" + "' " +
                 "WHERE id = " + orderId;
-        System.out.println(query);
+
         statement.execute(query);
         statement.close();
 

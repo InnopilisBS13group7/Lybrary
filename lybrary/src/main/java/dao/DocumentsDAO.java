@@ -31,7 +31,9 @@ public class DocumentsDAO {
 
     public List<Document> getAll() throws HibernateException {
         Criteria criteria = session.createCriteria(Document.class);
-        return ((List<Document>) criteria.list());
+        List<Document> list = (List<Document>) criteria.list();
+        System.out.println(list);
+        return list;
     }
 
     public List<Document> getSpecialSet() throws HibernateException {

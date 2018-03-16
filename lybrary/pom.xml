@@ -18,8 +18,8 @@
         <servlet.version>3.1.0</servlet.version>
         <hibernate.version>4.3.11.Final</hibernate.version>
         <hibernate-envers.version>${hibernate.version}</hibernate-envers.version>
+        <spring-data-jpa.version>1.8.2.RELEASE</spring-data-jpa.version>
     </properties>
-
 
 
     <dependencies>
@@ -110,6 +110,18 @@
             <version>${hibernate-envers.version}</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>2.0.0.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+            <version>${spring-data-jpa.version}</version>
+        </dependency>
 
 
     </dependencies>
