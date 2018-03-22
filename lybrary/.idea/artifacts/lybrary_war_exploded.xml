@@ -44,7 +44,8 @@
           <element id="library" level="project" name="Maven: antlr:antlr:2.7.7" />
           <element id="library" level="project" name="Maven: org.jboss:jandex:1.1.0.Final" />
           <element id="library" level="project" name="Maven: org.hibernate:hibernate-envers:4.3.11.Final" />
-          <element id="library" level="project" name="Maven: org.hibernate:hibernate-entitymanager:4.3.11.Final" />
+          <element id="library" level="project" name="Maven: org.hibernate:hibernate-entitymanager:5.2.10.Final" />
+          <element id="library" level="project" name="Maven: net.bytebuddy:byte-buddy:1.6.6" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-web:2.0.0.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter:2.0.0.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot:2.0.0.RELEASE" />
@@ -76,6 +77,14 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-tx:4.0.9.RELEASE" />
           <element id="library" level="project" name="Maven: org.aspectj:aspectjrt:1.8.6" />
           <element id="library" level="project" name="Maven: org.slf4j:jcl-over-slf4j:1.7.12" />
+          <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-data-jpa:1.5.3.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-aop:1.5.3.RELEASE" />
+          <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.8.10" />
+          <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-jdbc:1.5.3.RELEASE" />
+          <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-jdbc:8.5.14" />
+          <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-juli:8.5.14" />
+          <element id="library" level="project" name="Maven: javax.transaction:javax.transaction-api:1.2" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-aspects:4.3.8.RELEASE" />
         </element>
       </element>
       <element id="directory" name="META-INF">
